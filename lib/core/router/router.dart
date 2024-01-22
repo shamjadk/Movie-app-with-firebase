@@ -5,6 +5,7 @@ import 'package:movie_app_with_firebase/features/authentication/presentation/pag
 import 'package:movie_app_with_firebase/features/authentication/presentation/pages/phone_number_page.dart';
 import 'package:movie_app_with_firebase/features/authentication/presentation/pages/sign_up_page.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/pages/home_page.dart';
+import 'package:movie_app_with_firebase/features/home_page/presentation/pages/profile_page.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'router.g.dart';
@@ -36,6 +37,10 @@ final _router = GoRouter(initialLocation: HomePage.routePath, routes: [
   GoRoute(
     path: PhoneNumberPage.routePath,
     builder: (context, state) => const PhoneNumberPage(),
+  ),
+  GoRoute(
+    path: ProfilePage.routePath,
+    builder: (context, state) => const ProfilePage(),
   ),
 ]);
 

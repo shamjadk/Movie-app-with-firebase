@@ -7,7 +7,7 @@ class LoginPageConstants {
   final txtuserNameTextField = 'Enter your email id';
   final txtpasswordTextField = 'Enter your password';
   final txtloginButton = 'Log in';
-  final logoPath = 'assets/images/movie_base_logo.png';
+  final logoPath = 'assets/images/movie_base.png';
   final googleLogoPath = 'assets/images/google_logo.png';
   final txtgoogleLoginButton = 'Continue with Google';
   final txtPhoneLoginButton = 'Continue with mobile number';

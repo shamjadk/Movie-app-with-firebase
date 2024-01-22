@@ -19,6 +19,16 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
   final TextStyle h800;
   final TextStyle h900;
   final TextStyle h1000;
+  final TextStyle wh200;
+  final TextStyle wh100;
+  final TextStyle wh300;
+  final TextStyle wh400;
+  final TextStyle wh500;
+  final TextStyle wh600;
+  final TextStyle wh700;
+  final TextStyle wh800;
+  final TextStyle wh900;
+  final TextStyle wh1000;
   final TextStyle pDefault;
   final TextStyle pLink;
   final TextStyle pLinkHover;
@@ -27,6 +37,7 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
   /// Create the default style values
   AppTypographyExtension.fromColors({
     required Color defaultFontColor,
+    required Color whiteFontColor,
     required Color linkColor,
     required Color dimFontColor,
   })  : ui = TextStyle(color: defaultFontColor, fontSize: 14, letterSpacing: 0),
@@ -120,6 +131,57 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
             color: defaultFontColor,
             fontWeight: FontWeight.w600,
             fontSize: 48,
+            letterSpacing: 0),
+        wh100 = TextStyle(
+            color: dimFontColor,
+            fontWeight: FontWeight.w700,
+            fontSize: 11,
+            letterSpacing: 0),
+        wh200 = TextStyle(
+            color: dimFontColor,
+            fontWeight: FontWeight.w600,
+            fontSize: 12,
+            letterSpacing: 0),
+        wh300 = TextStyle(
+          color: defaultFontColor,
+          fontWeight: FontWeight.w600,
+          fontSize: 12,
+          letterSpacing: 0,
+        ),
+        wh400 = TextStyle(
+            color: whiteFontColor,
+            fontWeight: FontWeight.w600,
+            fontSize: 14,
+            letterSpacing: 0),
+        wh500 = TextStyle(
+            color: whiteFontColor,
+            fontWeight: FontWeight.w600,
+            fontSize: 16,
+            letterSpacing: 0),
+        wh600 = TextStyle(
+            color: whiteFontColor,
+            fontWeight: FontWeight.w600,
+            fontSize: 20,
+            letterSpacing: 0),
+        wh700 = TextStyle(
+            color: whiteFontColor,
+            fontWeight: FontWeight.w600,
+            fontSize: 24,
+            letterSpacing: 0),
+        wh800 = TextStyle(
+            color: whiteFontColor,
+            fontWeight: FontWeight.w600,
+            fontSize: 29,
+            letterSpacing: 0),
+        wh900 = TextStyle(
+            color: whiteFontColor,
+            fontWeight: FontWeight.w600,
+            fontSize: 35,
+            letterSpacing: 0),
+        wh1000 = TextStyle(
+            color: whiteFontColor,
+            fontWeight: FontWeight.w600,
+            fontSize: 48,
             letterSpacing: 0);
 
   /// Create the typography with given styles
@@ -140,6 +202,16 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
     required this.h800,
     required this.h900,
     required this.h1000,
+    required this.wh100,
+    required this.wh200,
+    required this.wh300,
+    required this.wh400,
+    required this.wh500,
+    required this.wh600,
+    required this.wh700,
+    required this.wh800,
+    required this.wh900,
+    required this.wh1000,
     required this.pDefault,
     required this.pLink,
     required this.pLinkHover,
@@ -164,6 +236,16 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
     TextStyle? h800,
     TextStyle? h900,
     TextStyle? h1000,
+    TextStyle? wh100,
+    TextStyle? wh200,
+    TextStyle? wh300,
+    TextStyle? wh400,
+    TextStyle? wh500,
+    TextStyle? wh600,
+    TextStyle? wh700,
+    TextStyle? wh800,
+    TextStyle? wh900,
+    TextStyle? wh1000,
     TextStyle? pDefault,
     TextStyle? pLink,
     TextStyle? pLinkHover,
@@ -186,6 +268,16 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
       h800: h800 ?? this.h800,
       h900: h900 ?? this.h900,
       h1000: h1000 ?? this.h1000,
+      wh100: wh100 ?? this.wh100,
+      wh200: wh200 ?? this.wh200,
+      wh300: wh300 ?? this.wh300,
+      wh400: wh400 ?? this.wh400,
+      wh500: wh500 ?? this.wh500,
+      wh600: wh600 ?? this.wh600,
+      wh700: wh700 ?? this.wh700,
+      wh800: wh800 ?? this.wh800,
+      wh900: wh900 ?? this.wh900,
+      wh1000: wh1000 ?? this.wh1000,
       pDefault: pDefault ?? this.pDefault,
       pLink: pLink ?? this.pLink,
       pLinkHover: pLinkHover ?? this.pLinkHover,
@@ -216,6 +308,16 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
       h800: TextStyle.lerp(h800, other.h800, t)!,
       h900: TextStyle.lerp(h900, other.h900, t)!,
       h1000: TextStyle.lerp(h1000, other.h1000, t)!,
+      wh100: TextStyle.lerp(wh100, other.wh100, t)!,
+      wh200: TextStyle.lerp(wh200, other.wh200, t)!,
+      wh300: TextStyle.lerp(wh300, other.wh300, t)!,
+      wh400: TextStyle.lerp(wh400, other.wh400, t)!,
+      wh500: TextStyle.lerp(wh500, other.wh500, t)!,
+      wh600: TextStyle.lerp(wh600, other.wh600, t)!,
+      wh700: TextStyle.lerp(wh700, other.wh700, t)!,
+      wh800: TextStyle.lerp(wh800, other.wh800, t)!,
+      wh900: TextStyle.lerp(wh900, other.wh900, t)!,
+      wh1000: TextStyle.lerp(wh1000, other.wh1000, t)!,
       pDefault: TextStyle.lerp(pDefault, other.pDefault, t)!,
       pLink: TextStyle.lerp(pLink, other.pLink, t)!,
       pLinkHover: TextStyle.lerp(pLinkHover, other.pLinkHover, t)!,

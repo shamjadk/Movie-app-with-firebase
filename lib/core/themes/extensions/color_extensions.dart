@@ -4,6 +4,7 @@ class AppColorExtension extends ThemeExtension<AppColorExtension> {
   final Color scaffoldBackground;
   final Color primary;
   final Color secondary;
+  final Color appBar;
   final Color text;
   final Color textInverse;
   final Color textSubtle;
@@ -14,6 +15,7 @@ class AppColorExtension extends ThemeExtension<AppColorExtension> {
     required this.scaffoldBackground,
     required this.primary,
     required this.secondary,
+    required this.appBar,
     required this.text,
     required this.textInverse,
     required this.textSubtle,
@@ -26,6 +28,7 @@ class AppColorExtension extends ThemeExtension<AppColorExtension> {
     Color? scaffoldBackground,
     Color? primary,
     Color? secondary,
+    Color? appBar,
     Color? text,
     Color? textInverse,
     Color? textSubtle,
@@ -36,6 +39,7 @@ class AppColorExtension extends ThemeExtension<AppColorExtension> {
       scaffoldBackground: scaffoldBackground ?? this.scaffoldBackground,
       primary: primary ?? this.primary,
       secondary: secondary ?? this.secondary,
+      appBar: appBar ?? this.appBar,
       text: text ?? this.text,
       textInverse: textInverse ?? this.textInverse,
       textSubtle: textSubtle ?? this.textSubtle,
@@ -56,6 +60,7 @@ class AppColorExtension extends ThemeExtension<AppColorExtension> {
           Color.lerp(scaffoldBackground, other.scaffoldBackground, t)!,
       primary: Color.lerp(primary, other.primary, t)!,
       secondary: Color.lerp(secondary, other.secondary, t)!,
+      appBar: Color.lerp(appBar, other.appBar, t)!,
       text: Color.lerp(text, other.text, t)!,
       textInverse: Color.lerp(textInverse, other.textInverse, t)!,
       textSubtle: Color.lerp(textSubtle, other.textSubtle, t)!,

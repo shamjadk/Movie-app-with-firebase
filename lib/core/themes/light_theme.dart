@@ -14,6 +14,7 @@ final _lightTheme = ThemeData(
       scaffoldBackground: Colors.white,
       primary: Colors.yellow,
       secondary: AppColorPalette.yellow100,
+      appBar: AppColorPalette.blueDark,
       text: AppColorPalette.grey900,
       textInverse: Colors.white,
       textSubtle: AppColorPalette.grey700,
@@ -23,6 +24,7 @@ final _lightTheme = ThemeData(
     AppSpaceExtension.fromBaseSpace(8),
     AppTypographyExtension.fromColors(
       defaultFontColor: AppColorPalette.grey900,
+      whiteFontColor: Colors.white,
       linkColor: Colors.blue,
       dimFontColor: AppColorPalette.grey700,
     )
