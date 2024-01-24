@@ -4,7 +4,9 @@ import 'package:movie_app_with_firebase/features/authentication/presentation/pag
 import 'package:movie_app_with_firebase/features/authentication/presentation/pages/otp_verification_page.dart';
 import 'package:movie_app_with_firebase/features/authentication/presentation/pages/phone_number_page.dart';
 import 'package:movie_app_with_firebase/features/authentication/presentation/pages/sign_up_page.dart';
+import 'package:movie_app_with_firebase/features/home_page/domain/entity/movie_api_entity.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/pages/home_page.dart';
+import 'package:movie_app_with_firebase/features/home_page/presentation/pages/movie_info_page.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/pages/profile_page.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -41,6 +43,10 @@ final _router = GoRouter(initialLocation: HomePage.routePath, routes: [
   GoRoute(
     path: ProfilePage.routePath,
     builder: (context, state) => const ProfilePage(),
+  ),
+  GoRoute(
+    path: MovieInfoPage.routePath,
+    builder: (context, state) => MovieInfoPage(entity: state.extra as MovieApiEntity),
   ),
 ]);
 

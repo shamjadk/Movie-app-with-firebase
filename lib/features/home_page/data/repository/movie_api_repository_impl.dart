@@ -15,15 +15,39 @@ class MovieApiRepositryImpl implements MovieApiRepository {
     late List<MovieApiEntity> results;
 
     results = [
-      for (var result in data.results)
+      for (var result in data!.results)
         MovieApiEntity(
+          adult: result.adult,
           backdropPath: result.backdropPath,
           originalTitle: result.originalTitle,
+          title: result.title,
           overview: result.overview,
           posterPath: result.posterPath,
           releaseDate: result.releaseDate,
           voteAverage: result.voteAverage,
-          voteCount: result.voteCount,
+          voteCount: result.voteCount!,
+        ),
+    ];
+    return results;
+  }
+
+  @override
+  Future<List<MovieApiEntity>> fetchTrendingMovies() async {
+    final data = await dataSource.fetchTrendingMovies();
+    late List<MovieApiEntity> results;
+
+    results = [
+      for (var result in data!.results)
+        MovieApiEntity(
+          adult: result.adult,
+          backdropPath: result.backdropPath,
+          originalTitle: result.originalTitle,
+          title: result.title,
+          overview: result.overview,
+          posterPath: result.posterPath,
+          releaseDate: result.releaseDate,
+          voteAverage: result.voteAverage,
+          voteCount: result.voteCount!,
         ),
     ];
     return results;

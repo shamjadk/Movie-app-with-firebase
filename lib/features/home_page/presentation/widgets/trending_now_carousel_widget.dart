@@ -1,0 +1,82 @@
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:movie_app_with_firebase/core/constants/home_page/home_page_constants.dart';
+
+import 'package:movie_app_with_firebase/core/themes/app_theme.dart';
+import 'package:movie_app_with_firebase/core/utils/api_utils.dart';
+import 'package:movie_app_with_firebase/features/home_page/domain/entity/movie_api_entity.dart';
+import 'package:movie_app_with_firebase/features/home_page/presentation/pages/movie_info_page.dart';
+import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/watch_now_button_widget.dart';
+
+class TrendingNowCarouselWidget extends ConsumerWidget {
+  final List<MovieApiEntity> value;
+  const TrendingNowCarouselWidget({super.key, required this.value});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final appTheme = AppTheme.of(context);
+    return CarouselSlider.builder(
+      itemCount: value.length,
+      options: CarouselOptions(
+          autoPlayAnimationDuration: const Duration(seconds: 2),
+          autoPlay: true,
+          viewportFraction: 1),
+      itemBuilder: (context, index, realIndex) => Container(
+        margin: EdgeInsets.all(appTheme.spaces.space_100),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(appTheme.spaces.space_200),
+            image: DecorationImage(
+                image: NetworkImage(
+                    ApiUtils.imageBasePath + value[index].backdropPath),
+                fit: BoxFit.cover)),
+        child: Container(
+          padding: EdgeInsets.all(appTheme.spaces.space_100),
+          margin: EdgeInsets.only(top: appTheme.spaces.space_600 * 2.8),
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [Colors.transparent, appTheme.colors.text]),
+              borderRadius: BorderRadius.vertical(
+                  bottom: Radius.circular(appTheme.spaces.space_200))),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                width: MediaQuery.sizeOf(context).width / 2,
+                child: Text(value[index].title,
+                    overflow: TextOverflow.fade,
+                    style: appTheme.typography.wh600),
+              ),
+              ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(
+                      appTheme.colors.textInverse.withOpacity(0.6)),
+                  shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.circular(appTheme.spaces.space_200))),
+                ),
+                onPressed: () =>
+                    context.push(MovieInfoPage.routePath, extra: value[index]),
+                child: Row(
+                  children: [
+                    Text(
+                      ref.watch(homePageConstantsProvider).txtWatchNow,
+                      style: appTheme.typography.h500,
+                    ),
+                    Icon(
+                      Icons.play_arrow,
+                      color: appTheme.colors.text,
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
