@@ -8,5 +8,7 @@ class ProviderState with _$ProviderState {
   factory ProviderState({
     required List<MovieApiEntity> movies,
     required List<MovieApiEntity> trending,
+    required List<MovieApiEntity> popular,
+    required List<MovieApiEntity> topRated,
   }) = _ProviderState;
 }

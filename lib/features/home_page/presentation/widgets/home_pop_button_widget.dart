@@ -9,10 +9,17 @@ class HomePopButtonWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appTheme = AppTheme.of(context);
-    return IconButton(
-        onPressed: () {},
-        icon: IconButton(
-            onPressed: () => context.pop(),
-            icon: const Icon(Icons.arrow_circle_left_rounded)));
+    return TextButton(
+        style: TextButton.styleFrom(
+          padding: EdgeInsets.all(appTheme.spaces.space_125),
+          backgroundColor: appTheme.colors.text,
+          shape: const CircleBorder(),
+        ),
+        onPressed: () => context.pop(),
+        child: Icon(
+          Icons.arrow_back,
+          size: appTheme.spaces.space_250,
+          color: appTheme.colors.textInverse,
+        ));
   }
 }

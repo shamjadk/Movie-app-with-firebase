@@ -3,12 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app_with_firebase/core/constants/home_page/home_page_constants.dart';
 import 'package:movie_app_with_firebase/core/themes/app_theme.dart';
-import 'package:movie_app_with_firebase/features/home_page/domain/entity/movie_api_entity.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/pages/movie_info_page.dart';
 
-class WatchNowButtonWidget extends ConsumerWidget {
-  final List<MovieApiEntity> value;
-  const WatchNowButtonWidget({super.key, required this.value});
+class GetDetailsNowButtonWidget extends ConsumerWidget {
+  final int value;
+  const GetDetailsNowButtonWidget({super.key, required this.value});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -20,16 +19,16 @@ class WatchNowButtonWidget extends ConsumerWidget {
         shape: MaterialStatePropertyAll(RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(appTheme.spaces.space_200))),
       ),
-      onPressed: () =>
-          context.push(MovieInfoPage.routePath, extra: value),
+      onPressed: () => context.push(MovieInfoPage.routePath, extra: value),
       child: Row(
         children: [
           Text(
-            ref.watch(homePageConstantsProvider).txtWatchNow,
+            ref.watch(homePageConstantsProvider).txtGetDetails,
             style: appTheme.typography.h500,
           ),
           Icon(
-            Icons.play_arrow,
+            Icons.arrow_forward_ios,
+            size: appTheme.spaces.space_200,
             color: appTheme.colors.text,
           )
         ],

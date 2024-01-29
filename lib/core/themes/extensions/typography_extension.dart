@@ -94,7 +94,7 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
         h300 = TextStyle(
           color: defaultFontColor,
           fontWeight: FontWeight.w600,
-          fontSize: 12,
+          fontSize: 13,
           letterSpacing: 0,
         ),
         h400 = TextStyle(
@@ -133,19 +133,19 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
             fontSize: 48,
             letterSpacing: 0),
         wh100 = TextStyle(
-            color: dimFontColor,
+            color: whiteFontColor,
             fontWeight: FontWeight.w700,
             fontSize: 11,
             letterSpacing: 0),
         wh200 = TextStyle(
-            color: dimFontColor,
+            color: whiteFontColor,
             fontWeight: FontWeight.w600,
             fontSize: 12,
             letterSpacing: 0),
         wh300 = TextStyle(
-          color: defaultFontColor,
+          color: whiteFontColor,
           fontWeight: FontWeight.w600,
-          fontSize: 12,
+          fontSize: 13,
           letterSpacing: 0,
         ),
         wh400 = TextStyle(

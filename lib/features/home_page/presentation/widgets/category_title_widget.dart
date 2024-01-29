@@ -10,7 +10,8 @@ class CategoryTitleWidget extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final appTheme = AppTheme.of(context);
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: appTheme.spaces.space_100),
+      padding: EdgeInsets.only(
+          left: appTheme.spaces.space_100, top: appTheme.spaces.space_150),
       child: Text(
         text,
         style: appTheme.typography.h600,

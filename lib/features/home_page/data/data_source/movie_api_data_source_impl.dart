@@ -1,26 +1,27 @@
 import 'dart:developer';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:movie_app_with_firebase/core/exceptions/base_exception.dart';
 import 'package:movie_app_with_firebase/core/utils/api_utils.dart';
 import 'package:movie_app_with_firebase/features/home_page/data/data_source/movie_api_data_source.dart';
+import 'package:movie_app_with_firebase/features/home_page/data/models/firestore_model.dart';
 import 'package:movie_app_with_firebase/features/home_page/data/models/movie_api_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'movie_api_data_source_impl.g.dart';
 
 class MovieApiDataSourceImpl implements MovieApiDataSource {
-  final movieUrl = ApiUtils.moviesUrl;
-  final trendingMovieUrl = ApiUtils.trendingMoviesUrl;
   final token = ApiUtils.apiToken;
+  final db = FirebaseFirestore.instance;
 
   Dio dio = Dio();
 
   @override
-  Future<MovieApiModel?> fetchMovies() async {
+  Future<MovieApiModel?> fetchMovies(String postPath) async {
     try {
       dio.options.headers['Authorization'] = 'Bearer $token';
-      final Response response = await dio.get(movieUrl);
+      final Response response = await dio.get(ApiUtils.baseUrl + postPath);
       if (response.statusCode == 200) {
         log(response.statusCode.toString());
         return MovieApiModel.fromJson(response.data);
@@ -32,18 +33,8 @@ class MovieApiDataSourceImpl implements MovieApiDataSource {
   }
 
   @override
-  Future<MovieApiModel?> fetchTrendingMovies() async {
-    try {
-      dio.options.headers['Authorization'] = 'Bearer $token';
-      final Response response = await dio.get(trendingMovieUrl);
-      if (response.statusCode == 200) {
-        log(response.statusCode.toString());
-        return MovieApiModel.fromJson(response.data);
-      }
-    } catch (e) {
-      throw BaseException('An error has occured');
-    }
-    return null;
+  Future<void> addToFirestore(FireStoreModel model) async {
+    db.collection('favourite movies').add(model.toFirestore());
   }
 }
 

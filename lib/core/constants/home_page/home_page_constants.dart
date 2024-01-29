@@ -11,6 +11,15 @@ class HomePageConstants {
   final txtWatchNow = 'Watch Now';
   final txtTrending = 'Trending now';
   final txtPopular = 'Popular Movies';
+  final txtGetDetails = 'Get Details';
+  final txtDiscover = 'Discover';
+  final listDiscover = [
+    'Now playing',
+    'Upcoming movies',
+    'Top rated movies',
+    'Trending movies',
+    'Popular movies'
+  ];
 }
 
 @riverpod
