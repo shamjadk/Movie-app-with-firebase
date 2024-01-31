@@ -54,7 +54,6 @@ class _HomePageState extends ConsumerState<HomePage> {
                   child: CircularProgressIndicator(),
                 )
             },
-     
     );
   }
 }

@@ -8,19 +8,18 @@ import 'package:movie_app_with_firebase/features/home_page/domain/entity/movie_a
 import 'package:movie_app_with_firebase/features/home_page/presentation/pages/home_page.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/pages/movie_info_page.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/pages/profile_page.dart';
-import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/page_view_widget.dart';
+import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/page_view_page.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'router.g.dart';
 
-final _router = GoRouter(initialLocation: PageViewWidget.routePath, routes: [
+final _router = GoRouter(initialLocation: PageViewPage.routePath, routes: [
   GoRoute(
-    path: PageViewWidget.routePath,
-    builder: (context, state) => const PageViewWidget(),
+    path: PageViewPage.routePath,
+    builder: (context, state) => const PageViewPage(),
     redirect: (context, state) {
       final user = FirebaseAuth.instance.currentUser;
-      if (user == null ||
-          !user.emailVerified&&user.phoneNumber==null) {
+      if (user == null || !user.emailVerified && user.phoneNumber == null) {
         return LoginPage.routePath;
       }
       return null;

@@ -51,6 +51,11 @@ class FirestoreRepositoryImpl implements FirestoreRepository {
       ];
     }
   }
+
+  @override
+  Future<void> removeFavMoviesFromFirestore(String id) {
+    return dataSource.removeFavMoviesFromFirestore(id);
+  }
 }
 
 @riverpod

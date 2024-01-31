@@ -7,9 +7,9 @@ import 'package:movie_app_with_firebase/features/home_page/presentation/pages/se
 import 'package:movie_app_with_firebase/features/home_page/presentation/provider/movie_api_provider.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/bottom_navigation_bar_widget.dart';
 
-class PageViewWidget extends ConsumerWidget {
+class PageViewPage extends ConsumerWidget {
   static const routePath = '/';
-  const PageViewWidget({super.key});
+  const PageViewPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:movie_app_with_firebase/core/constants/home_page/movie_info_page.dart';
 import 'package:movie_app_with_firebase/core/themes/app_theme.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/entity/movie_api_entity.dart';
-import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/category_title_widget.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/movie_details_widget.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/movie_info_buttons_widget.dart';
 

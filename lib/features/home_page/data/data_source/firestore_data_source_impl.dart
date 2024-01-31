@@ -13,12 +13,19 @@ class FirestoreDataSourceImpl implements FirestoreDataSource {
           toFirestore: (FireStoreModel model, options) => model.toFirestore());
   @override
   Future<void> addToFirestore(FireStoreModel fireStoreModel) async {
-    await favouriteMoviesRef.doc(fireStoreModel.id.toString()).set(fireStoreModel);
+    await favouriteMoviesRef
+        .doc(fireStoreModel.id.toString())
+        .set(fireStoreModel);
   }
 
   @override
   Stream<QuerySnapshot<FireStoreModel>> getFavMoviesFromFirestore() {
     return favouriteMoviesRef.snapshots();
+  }
+
+  @override
+  Future<void> removeFavMoviesFromFirestore(String id) {
+    return favouriteMoviesRef.doc(id).delete();
   }
 }
 
