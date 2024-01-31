@@ -42,6 +42,7 @@ class TrendingNowCarouselWidget extends ConsumerWidget {
                     bottom: Radius.circular(appTheme.spaces.space_200))),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 SizedBox(
                   width: MediaQuery.sizeOf(context).width / 2,

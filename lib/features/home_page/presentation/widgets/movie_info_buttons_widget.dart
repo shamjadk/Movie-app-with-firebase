@@ -9,7 +9,7 @@ class MovieInfoButtonsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final appTheme = AppTheme.of(context);
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: appTheme.spaces.space_125),
+      padding: EdgeInsets.symmetric(vertical: appTheme.spaces.space_200),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [

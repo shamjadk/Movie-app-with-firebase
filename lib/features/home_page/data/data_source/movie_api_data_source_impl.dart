@@ -5,7 +5,6 @@ import 'package:dio/dio.dart';
 import 'package:movie_app_with_firebase/core/exceptions/base_exception.dart';
 import 'package:movie_app_with_firebase/core/utils/api_utils.dart';
 import 'package:movie_app_with_firebase/features/home_page/data/data_source/movie_api_data_source.dart';
-import 'package:movie_app_with_firebase/features/home_page/data/models/firestore_model.dart';
 import 'package:movie_app_with_firebase/features/home_page/data/models/movie_api_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -32,10 +31,7 @@ class MovieApiDataSourceImpl implements MovieApiDataSource {
     return null;
   }
 
-  @override
-  Future<void> addToFirestore(FireStoreModel model) async {
-    db.collection('favourite movies').add(model.toFirestore());
-  }
+  
 }
 
 @riverpod

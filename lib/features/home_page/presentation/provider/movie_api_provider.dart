@@ -1,7 +1,12 @@
+import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:movie_app_with_firebase/features/home_page/data/repository/firestore_repository_impl.dart';
 import 'package:movie_app_with_firebase/features/home_page/data/repository/movie_api_repository_impl.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/entity/movie_api_entity.dart';
+import 'package:movie_app_with_firebase/features/home_page/domain/repository/firestore_repository.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/repository/movie_api_repository.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/usecase/add_to_firestore_usecase.dart';
+import 'package:movie_app_with_firebase/features/home_page/domain/usecase/get_fav_movies.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/usecase/movie_api_usecase.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/usecase/popular_movies_usecase.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/usecase/top_rated_movies_usecase.dart';
@@ -13,15 +18,15 @@ part 'movie_api_provider.g.dart';
 
 @riverpod
 class MovieApi extends _$MovieApi {
-  late final MovieApiRepository repository;
+  final pageController = PageController();
   @override
   Future<ProviderState> build() async {
-    repository = ref.watch(movieApiRepositoryProvider);
     final result = await Future.wait([
-      MovieApiUsecase(repository: repository)(),
-      TrendingMoviesUsecase(repository: repository)(),
-      PopularMoviesUsecase(repository: repository)(),
-      TopRatedMoviesUsecase(repository: repository)()
+      MovieApiUsecase(repository: ref.watch(movieApiRepositoryProvider))(),
+      TrendingMoviesUsecase(
+          repository: ref.watch(movieApiRepositoryProvider))(),
+      PopularMoviesUsecase(repository: ref.watch(movieApiRepositoryProvider))(),
+      TopRatedMoviesUsecase(repository: ref.watch(movieApiRepositoryProvider))()
     ]);
     return ProviderState(
         movies: result[0],
@@ -31,6 +36,15 @@ class MovieApi extends _$MovieApi {
   }
 
   Future<void> addToFirestore(MovieApiEntity entity) {
-    return AddToFirestoreUsecase(repository: repository)(entity);
+    return AddToFirestoreUsecase(
+        repository: ref.watch(firestoreRepositoryProvider))(entity);
+  }
+
+  Stream<List<MovieApiEntity>> getFavMoviesFromFirestore(
+      MovieApiEntity entity) {
+    return GetFavMoviesFromFirestoreUsecase(
+        repository: ref.watch(firestoreRepositoryProvider))(entity);
   }
 }
+
+final selectedProvider = StateProvider<int>((ref) => 0);

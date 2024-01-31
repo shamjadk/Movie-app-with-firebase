@@ -8,21 +8,27 @@ import 'package:movie_app_with_firebase/features/home_page/domain/entity/movie_a
 import 'package:movie_app_with_firebase/features/home_page/presentation/pages/home_page.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/pages/movie_info_page.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/pages/profile_page.dart';
+import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/page_view_widget.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'router.g.dart';
 
-final _router = GoRouter(initialLocation: HomePage.routePath, routes: [
+final _router = GoRouter(initialLocation: PageViewWidget.routePath, routes: [
   GoRoute(
-    path: HomePage.routePath,
-    builder: (context, state) => const HomePage(),
+    path: PageViewWidget.routePath,
+    builder: (context, state) => const PageViewWidget(),
     redirect: (context, state) {
-      if (FirebaseAuth.instance.currentUser == null ||
-          !FirebaseAuth.instance.currentUser!.emailVerified) {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user == null ||
+          !user.emailVerified&&user.phoneNumber==null) {
         return LoginPage.routePath;
       }
       return null;
     },
+  ),
+  GoRoute(
+    path: HomePage.routePath,
+    builder: (context, state) => const HomePage(),
   ),
   GoRoute(
     path: LoginPage.routePath,
@@ -46,7 +52,8 @@ final _router = GoRouter(initialLocation: HomePage.routePath, routes: [
   ),
   GoRoute(
     path: MovieInfoPage.routePath,
-    builder: (context, state) => MovieInfoPage(entity: state.extra as MovieApiEntity),
+    builder: (context, state) =>
+        MovieInfoPage(entity: state.extra as MovieApiEntity),
   ),
 ]);
 

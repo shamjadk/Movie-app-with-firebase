@@ -3,4 +3,5 @@ class MovieInfoPageConstants {
   static const btnAddToList = 'Add to list';
   static const btnDownload = 'Download';
   static const btnShare = 'Share';
+  static const txtSynopsis = 'Synopsis';
 }

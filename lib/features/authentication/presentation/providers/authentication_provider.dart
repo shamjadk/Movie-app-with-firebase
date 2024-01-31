@@ -18,6 +18,7 @@ import 'package:movie_app_with_firebase/features/authentication/presentation/pag
 import 'package:movie_app_with_firebase/features/authentication/presentation/pages/otp_verification_page.dart';
 import 'package:movie_app_with_firebase/features/authentication/presentation/providers/auth_state.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/pages/home_page.dart';
+import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/page_view_widget.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'authentication_provider.g.dart';
@@ -47,7 +48,7 @@ class Authentication extends _$Authentication {
       String email, String password, BuildContext context) async {
     try {
       await LogInUseCase(repository: repository)(email, password);
-      Future.sync(() => context.go(HomePage.routePath));
+      Future.sync(() => context.go(PageViewWidget.routePath));
     } on BaseException catch (e) {
       Future.sync(() => SnackbarUtils.snackbar(e.message, context));
     }
@@ -64,7 +65,7 @@ class Authentication extends _$Authentication {
   Future<void> continueWithGoogle(BuildContext context) async {
     try {
       await ContinueWithGoogleUseCase(repository: repository)();
-      Future.sync(() => context.go(HomePage.routePath));
+      Future.sync(() => context.go(PageViewWidget.routePath));
     } on BaseException catch (e) {
       Future.sync(() => SnackbarUtils.snackbar(e.message, context));
     }
@@ -87,7 +88,7 @@ class Authentication extends _$Authentication {
   Future<void> verifyOtp(BuildContext context, String otp) async {
     try {
       await VerifyOtpUseCase(repository: repository)(state.verificationId, otp);
-      Future.sync(() => context.go(HomePage.routePath));
+      Future.sync(() => context.go(PageViewWidget.routePath));
     } on BaseException catch (e) {
       Future.sync(() => SnackbarUtils.snackbar(e.message, context));
     }

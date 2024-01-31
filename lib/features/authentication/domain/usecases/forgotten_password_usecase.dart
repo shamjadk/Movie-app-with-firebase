@@ -7,8 +7,12 @@ final class ForgottenPasswordUseCase {
   Future<void> call(String email) async {
     try {
       await repository.forgottenPassword(email);
-    } on Exception {
-      throw Authenticationxception('Verification failed, please try again');
+    } on Exception catch (e) {
+      if (e.toString().contains('connection')) {
+        throw Authenticationxception('Connection Error');
+      }else{
+        throw Authenticationxception(e.toString());
+      }
     }
   }
 }

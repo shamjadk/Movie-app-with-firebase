@@ -12,12 +12,16 @@ import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/trending_now_carousel_widget.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/try_again_button_widget.dart';
 
-class HomePage extends ConsumerWidget {
-  static const routePath = '/';
-  const HomePage({super.key});
-
+class HomePage extends ConsumerStatefulWidget {
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<HomePage> createState() => _HomePageState();
+  static const routePath = '/home';
+  const HomePage({super.key});
+}
+
+class _HomePageState extends ConsumerState<HomePage> {
+  @override
+  Widget build(BuildContext context) {
     final constants = ref.watch(homePageConstantsProvider);
     final appTheme = AppTheme.of(context);
     return Scaffold(
@@ -50,6 +54,7 @@ class HomePage extends ConsumerWidget {
                   child: CircularProgressIndicator(),
                 )
             },
+     
     );
   }
 }

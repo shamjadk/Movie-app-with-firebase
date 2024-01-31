@@ -9,8 +9,12 @@ class PopularMoviesUsecase {
   Future<List<MovieApiEntity>> call() async {
     try {
       return repository.fetchMovies(ApiUtils.popularMoviesUrl);
-    } catch (e) {
-      throw BaseException(e.toString());
+    }on Exception catch (e) {
+      if (e.toString().contains('connection')) {
+        throw BaseException('Connection Error');
+      } else {
+        throw BaseException(e.toString());
+      }
     }
   }
 }

@@ -69,28 +69,34 @@ class FireBaseAuthDataSourceImpl implements FireBaseAuthDataSource {
   }
 
   @override
-  Future<(String, int?)> logInWithPhoneNumber(String mobileNUmber) async {
+  Future<(String, int?)> logInWithPhoneNumber(String mobileNUmber,
+      [int? resendToken]) async {
     try {
       final verificationIdCompleter = Completer<String>();
       final resendTokenCompleter = Completer<int?>();
       await firebaseAuth.verifyPhoneNumber(
+          forceResendingToken: resendToken,
+          phoneNumber: mobileNUmber,
           verificationCompleted: (PhoneAuthCredential credential) async {
-        log('completed');
-        await firebaseAuth.signInWithCredential(credential);
-      }, verificationFailed: (FirebaseAuthException e) {
-        if (e.code == 'invalid-phone-number') {
-          log('invalid phone number');
-        }
-      }, codeSent: (String? verificationId, int? resendToken) async {
-        verificationIdCompleter.complete(verificationId);
-        resendTokenCompleter.complete(resendToken);
-      }, codeAutoRetrievalTimeout: (String verificationId) async {
-        log('timeout');
-      });
+            log('completed');
+            await firebaseAuth.signInWithCredential(credential);
+          },
+          verificationFailed: (FirebaseAuthException e) {
+            if (e.code == 'invalid-phone-number') {
+              log('invalid phone number');
+            }
+          },
+          codeSent: (String? verificationId, int? resendToken) async {
+            verificationIdCompleter.complete(verificationId);
+            resendTokenCompleter.complete(resendToken);
+          },
+          codeAutoRetrievalTimeout: (String verificationId) async {
+            log('timeout');
+          });
       final verificationId = await verificationIdCompleter.future;
       final newResendToken = await resendTokenCompleter.future;
       return (verificationId, newResendToken);
-    } on Exception {
+    } catch (e) {
       throw Authenticationxception('Cannot login please try again');
     }
   }

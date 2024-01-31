@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:movie_app_with_firebase/core/constants/home_page/movie_info_page.dart';
 import 'package:movie_app_with_firebase/core/themes/app_theme.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/entity/movie_api_entity.dart';
+import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/category_title_widget.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/movie_details_widget.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/movie_info_buttons_widget.dart';
 
@@ -23,7 +25,11 @@ class SliverBodyInfoPageWidget extends ConsumerWidget {
               style: appTheme.typography.h800,
             ),
             MoviedetailsWidget(entity: entity),
-            MovieInfoButtonsWidget(),
+            const MovieInfoButtonsWidget(),
+            Text(
+              MovieInfoPageConstants.txtSynopsis,
+              style: appTheme.typography.h600,
+            ),
             Text(
               '\n${entity.overview}',
               style: appTheme.typography.h500,
