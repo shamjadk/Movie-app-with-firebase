@@ -6,7 +6,7 @@ import 'package:movie_app_with_firebase/features/home_page/presentation/provider
 
 class FavouriteButtonWidget extends ConsumerWidget {
   final MovieApiEntity entity;
-  const FavouriteButtonWidget({super.key,required this.entity});
+  const FavouriteButtonWidget({super.key, required this.entity});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -18,7 +18,7 @@ class FavouriteButtonWidget extends ConsumerWidget {
           shape: const CircleBorder(),
         ),
         onPressed: () {
-          ref.read(movieApiProvider.notifier).addToFirestore(entity);
+          ref.read(movieApiProvider.notifier).addFavMoviesToFirestore(entity);
         },
         child: Icon(
           Icons.favorite_border,

@@ -6,7 +6,7 @@ import 'package:movie_app_with_firebase/core/constants/otp_verification_page/otp
 import 'package:movie_app_with_firebase/core/themes/app_theme.dart';
 import 'package:movie_app_with_firebase/features/authentication/presentation/providers/authentication_provider.dart';
 import 'package:movie_app_with_firebase/features/authentication/presentation/widgets/elevated_button_widget.dart';
-import 'package:movie_app_with_firebase/features/authentication/presentation/widgets/text_field_widget.dart';
+import 'package:movie_app_with_firebase/core/widgets/text_field_widget.dart';
 
 class OtpVerificationPage extends HookConsumerWidget {
   static const routePath = '/otp';

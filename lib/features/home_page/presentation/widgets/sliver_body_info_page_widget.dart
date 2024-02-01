@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:movie_app_with_firebase/core/constants/home_page/movie_info_page.dart';
 import 'package:movie_app_with_firebase/core/themes/app_theme.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/entity/movie_api_entity.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/movie_details_widget.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/movie_info_buttons_widget.dart';
+import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/review_section_widget.dart';
 
-class SliverBodyInfoPageWidget extends ConsumerWidget {
+class SliverBodyInfoPageWidget extends HookConsumerWidget {
   final MovieApiEntity entity;
   const SliverBodyInfoPageWidget({super.key, required this.entity});
 
@@ -33,6 +34,9 @@ class SliverBodyInfoPageWidget extends ConsumerWidget {
               '\n${entity.overview}',
               style: appTheme.typography.h500,
             ),
+            Reviewsectionwidget(
+              movieEntity: entity,
+            )
           ],
         ),
       ),

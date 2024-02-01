@@ -9,7 +9,7 @@ import 'package:movie_app_with_firebase/features/authentication/presentation/wid
 import 'package:movie_app_with_firebase/features/authentication/presentation/widgets/pop_button_widget.dart';
 import 'package:movie_app_with_firebase/features/authentication/presentation/widgets/sized_box_200.dart';
 import 'package:movie_app_with_firebase/features/authentication/presentation/widgets/sized_box_800.dart';
-import 'package:movie_app_with_firebase/features/authentication/presentation/widgets/text_field_widget.dart';
+import 'package:movie_app_with_firebase/core/widgets/text_field_widget.dart';
 
 class SignUpPage extends HookConsumerWidget {
   static const routePath = '/signup';

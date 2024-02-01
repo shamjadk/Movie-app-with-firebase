@@ -19,7 +19,7 @@ class TextFieldWidget extends StatelessWidget {
             labelText: labelText,
             border: OutlineInputBorder(
                 borderSide: const BorderSide(width: 1),
-                borderRadius: BorderRadius.circular(10)),
+                borderRadius: BorderRadius.circular(20)),
           ),
         ),
       ),

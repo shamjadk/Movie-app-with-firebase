@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:movie_app_with_firebase/core/constants/home_page/movie_info_page.dart';
 import 'package:movie_app_with_firebase/core/themes/app_theme.dart';
-import 'package:movie_app_with_firebase/core/utils/api_utils.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/provider/movie_api_provider.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/favourite_list_widget.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/normal_app_bar_widget.dart';

@@ -10,7 +10,7 @@ import 'package:movie_app_with_firebase/features/authentication/presentation/wid
 import 'package:movie_app_with_firebase/features/authentication/presentation/widgets/google_login_widget.dart';
 import 'package:movie_app_with_firebase/features/authentication/presentation/widgets/phone_login_widget.dart';
 import 'package:movie_app_with_firebase/features/authentication/presentation/widgets/sign_up_button_widget.dart';
-import 'package:movie_app_with_firebase/features/authentication/presentation/widgets/text_field_widget.dart';
+import 'package:movie_app_with_firebase/core/widgets/text_field_widget.dart';
 
 class LoginPage extends HookConsumerWidget {
   static const routePath = '/login';

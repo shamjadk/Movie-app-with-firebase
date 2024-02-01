@@ -3,7 +3,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:movie_app_with_firebase/features/home_page/data/repository/firestore_repository_impl.dart';
 import 'package:movie_app_with_firebase/features/home_page/data/repository/movie_api_repository_impl.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/entity/movie_api_entity.dart';
-import 'package:movie_app_with_firebase/features/home_page/domain/usecase/add_to_firestore_usecase.dart';
+import 'package:movie_app_with_firebase/features/home_page/domain/entity/review_entity.dart';
+import 'package:movie_app_with_firebase/features/home_page/domain/usecase/add_fav_movies_to_firestore_usecase.dart';
+import 'package:movie_app_with_firebase/features/home_page/domain/usecase/add_reviews_usecase.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/usecase/get_fav_movies.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/usecase/movie_api_usecase.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/usecase/popular_movies_usecase.dart';
@@ -34,7 +36,7 @@ class MovieApi extends _$MovieApi {
         topRated: result[3]);
   }
 
-  Future<void> addToFirestore(MovieApiEntity entity) {
+  Future<void> addFavMoviesToFirestore(MovieApiEntity entity) {
     return AddToFirestoreUsecase(
         repository: ref.watch(firestoreRepositoryProvider))(entity);
   }
@@ -47,6 +49,11 @@ class MovieApi extends _$MovieApi {
   Future<void> removeFavMoviesFromFirestore(String id) {
     return RemoveFavFromFirestoreUsecase(
         repository: ref.watch(firestoreRepositoryProvider))(id);
+  }
+
+  Future<void> addReviews(ReviewEntity reviewEntity,String id) {
+    return AddReviewsUsecase(
+        repository: ref.watch(firestoreRepositoryProvider))(reviewEntity,id);
   }
 }
 
