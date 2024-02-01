@@ -6,4 +6,5 @@ abstract class FirestoreRepository{
   Stream<List<MovieApiEntity>> getFavMoviesFromFirestore();
   Future<void> removeFavMoviesFromFirestore(String id);
   Future<void> addReviewsToFirestore(ReviewEntity reviewEntity,String id);
+  Stream<List<ReviewEntity>> getReviewsFromFirestore(String id);
 }

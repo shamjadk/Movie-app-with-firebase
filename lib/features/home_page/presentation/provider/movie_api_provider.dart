@@ -7,6 +7,7 @@ import 'package:movie_app_with_firebase/features/home_page/domain/entity/review_
 import 'package:movie_app_with_firebase/features/home_page/domain/usecase/add_fav_movies_to_firestore_usecase.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/usecase/add_reviews_usecase.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/usecase/get_fav_movies.dart';
+import 'package:movie_app_with_firebase/features/home_page/domain/usecase/get_reviews_usecase.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/usecase/movie_api_usecase.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/usecase/popular_movies_usecase.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/usecase/remove_fav_usecase.dart';
@@ -51,9 +52,14 @@ class MovieApi extends _$MovieApi {
         repository: ref.watch(firestoreRepositoryProvider))(id);
   }
 
-  Future<void> addReviews(ReviewEntity reviewEntity,String id) {
+  Future<void> addReviews(ReviewEntity reviewEntity, String id) {
     return AddReviewsUsecase(
-        repository: ref.watch(firestoreRepositoryProvider))(reviewEntity,id);
+        repository: ref.watch(firestoreRepositoryProvider))(reviewEntity, id);
+  }
+
+  Stream<List<ReviewEntity>> getReviewsFromFirestore(String id) {
+    return GetReviewsFromFirestoreUsecase(
+        repository: ref.watch(firestoreRepositoryProvider))(id);
   }
 }
 

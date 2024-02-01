@@ -73,6 +73,21 @@ class FirestoreRepositoryImpl implements FirestoreRepository {
 
     await reviewDataSource.addReviewToFirestore(model, id);
   }
+
+  @override
+  Stream<List<ReviewEntity>> getReviewsFromFirestore(String id) async* {
+    final snapshot = reviewDataSource.getReviewsFromFirestore(id);
+    await for (final doc in snapshot) {
+      final data = doc.docs;
+      yield [
+        for (final model in data)
+          ReviewEntity(
+              review: model.data().review,
+              userName: model.data().userName,
+              time: model.data().time)
+      ];
+    }
+  }
 }
 
 @riverpod

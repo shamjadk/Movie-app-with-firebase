@@ -18,6 +18,16 @@ class ReviewDataSourceImpl implements ReviewDataSource {
         .doc()
         .set(reviewModel);
   }
+
+  @override
+  Stream<QuerySnapshot<ReviewModel>> getReviewsFromFirestore(String id) {
+    return db
+        .collection(id)
+        .withConverter(
+            fromFirestore: ReviewModel.fromFirestore,
+            toFirestore: (ReviewModel model, options) => model.toFirestore())
+        .snapshots();
+  }
 }
 
 @riverpod

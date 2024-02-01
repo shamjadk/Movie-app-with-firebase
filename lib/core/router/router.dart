@@ -8,7 +8,7 @@ import 'package:movie_app_with_firebase/features/home_page/domain/entity/movie_a
 import 'package:movie_app_with_firebase/features/home_page/presentation/pages/home_page.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/pages/movie_info_page.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/pages/profile_page.dart';
-import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/page_view_page.dart';
+import 'package:movie_app_with_firebase/features/home_page/presentation/pages/page_view_page.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'router.g.dart';

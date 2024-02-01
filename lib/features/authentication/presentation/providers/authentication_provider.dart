@@ -18,7 +18,7 @@ import 'package:movie_app_with_firebase/features/authentication/presentation/pag
 import 'package:movie_app_with_firebase/features/authentication/presentation/pages/otp_verification_page.dart';
 import 'package:movie_app_with_firebase/features/authentication/presentation/providers/auth_state.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/pages/home_page.dart';
-import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/page_view_page.dart';
+import 'package:movie_app_with_firebase/features/home_page/presentation/pages/page_view_page.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'authentication_provider.g.dart';
