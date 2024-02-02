@@ -8,6 +8,7 @@ import 'package:movie_app_with_firebase/features/home_page/presentation/provider
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/app_bar_widget.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/category_title_widget.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/discover_list_widget.dart';
+import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/drawer_widget.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/popular_list_view_widget.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/trending_now_carousel_widget.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/try_again_button_widget.dart';
@@ -22,9 +23,11 @@ class HomePage extends ConsumerStatefulWidget {
 class _HomePageState extends ConsumerState<HomePage> {
   @override
   Widget build(BuildContext context) {
+    
     final constants = ref.watch(homePageConstantsProvider);
     final appTheme = AppTheme.of(context);
     return Scaffold(
+      drawer: const DrawerWidget(),
       appBar: AppBarWidget(
         toolBarHeight: appTheme.spaces.space_50 * 15,
       ),

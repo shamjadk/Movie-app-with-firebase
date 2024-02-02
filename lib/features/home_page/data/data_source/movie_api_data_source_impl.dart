@@ -31,7 +31,21 @@ class MovieApiDataSourceImpl implements MovieApiDataSource {
     return null;
   }
 
-  
+  @override
+  Future<MovieApiModel> searchMovies(String text) async {
+    try {
+      dio.options.headers['Authorization'] = 'Bearer $token';
+      Response response = await dio.get(
+        ApiUtils.searchMoviesUrl,
+        queryParameters: {
+          'query': text,
+        },
+      );
+      return MovieApiModel.fromJson(response.data);
+    } on Exception {
+      throw BaseException('An error has occured');
+    }
+  }
 }
 
 @riverpod

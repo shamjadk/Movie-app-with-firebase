@@ -10,5 +10,6 @@ class ProviderState with _$ProviderState {
     required List<MovieApiEntity> trending,
     required List<MovieApiEntity> popular,
     required List<MovieApiEntity> topRated,
+    required List<MovieApiEntity>? search,
   }) = _ProviderState;
 }

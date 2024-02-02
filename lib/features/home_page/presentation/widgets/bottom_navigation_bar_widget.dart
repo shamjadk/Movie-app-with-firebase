@@ -11,7 +11,6 @@ class BottomNavigationBarWidget extends ConsumerWidget {
     final iconColor = AppTheme.of(context).colors.text;
     final appTheme = AppTheme.of(context);
     return BottomNavigationBar(
-      
         currentIndex: ref.watch(selectedProvider),
         onTap: (value) {
           ref.read(movieApiProvider.notifier).pageController.jumpToPage(value);

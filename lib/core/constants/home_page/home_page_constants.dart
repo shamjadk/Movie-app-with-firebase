@@ -13,6 +13,9 @@ class HomePageConstants {
   final txtPopular = 'Popular Movies';
   final txtGetDetails = 'Get Details';
   final txtDiscover = 'Discover';
+  final btnNo = 'No';
+  final btnYes = 'Yes';
+  final txtLogOut = 'Do you want to log out?';
   final listDiscover = [
     'Now playing',
     'Upcoming movies',

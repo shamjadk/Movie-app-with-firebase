@@ -4,8 +4,12 @@ import 'package:movie_app_with_firebase/core/themes/app_theme.dart';
 class TextFieldWidget extends StatelessWidget {
   final TextEditingController controller;
   final String labelText;
+  final Widget? suffixicon;
   const TextFieldWidget(
-      {super.key, required this.controller, required this.labelText});
+      {super.key,
+      required this.controller,
+      required this.labelText,
+      required this.suffixicon});
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +20,11 @@ class TextFieldWidget extends StatelessWidget {
         child: TextField(
           controller: controller,
           decoration: InputDecoration(
-            labelText: labelText,
-            border: OutlineInputBorder(
-                borderSide: const BorderSide(width: 1),
-                borderRadius: BorderRadius.circular(20)),
-          ),
+              labelText: labelText,
+              border: OutlineInputBorder(
+                  borderSide: const BorderSide(width: 1),
+                  borderRadius: BorderRadius.circular(20)),
+              suffixIcon: suffixicon),
         ),
       ),
     );

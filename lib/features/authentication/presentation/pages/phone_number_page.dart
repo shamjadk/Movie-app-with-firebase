@@ -24,7 +24,7 @@ class PhoneNumberPage extends HookConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextFieldWidget(
-                    controller: phoneController, labelText: 'enter phone'),
+                    controller: phoneController, labelText: 'enter phone',suffixicon: null,),
                 ElevatedButtonWidget(
                     buttonName: ref.watch(loginPageConstantsProvider).txtsendOtp,
                     onTap: () => ref

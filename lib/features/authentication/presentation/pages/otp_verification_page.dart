@@ -24,7 +24,7 @@ class OtpVerificationPage extends HookConsumerWidget {
           children: [
             TextFieldWidget(
                 controller: otpController,
-                labelText: OtpVerificationConstants.txtOtpTextfield),
+                labelText: OtpVerificationConstants.txtOtpTextfield,suffixicon: null,),
             ElevatedButtonWidget(
                 buttonName: ref.watch(loginPageConstantsProvider).txtVerifyOtp,
                 onTap: () => ref

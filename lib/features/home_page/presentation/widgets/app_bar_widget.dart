@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:movie_app_with_firebase/core/constants/home_page/home_page_constants.dart';
 import 'package:movie_app_with_firebase/core/themes/app_theme.dart';
-import 'package:movie_app_with_firebase/features/home_page/presentation/pages/profile_page.dart';
-import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/menu_button_widget.dart';
 
 class AppBarWidget extends HookConsumerWidget implements PreferredSizeWidget {
   final double toolBarHeight;
@@ -16,23 +13,8 @@ class AppBarWidget extends HookConsumerWidget implements PreferredSizeWidget {
     final space = AppTheme.of(context).spaces;
     final contstants = ref.watch(homePageConstantsProvider);
     return AppBar(
-        leading: const MenuButtonWidget(),
         backgroundColor: color.appBar,
         elevation: 0,
-        actions: [
-          IconButton(
-              onPressed: null,
-              icon: Icon(
-                Icons.search,
-                color: color.scaffoldBackground,
-              )),
-          IconButton(
-              onPressed: () => context.push(ProfilePage.routePath),
-              icon: Icon(
-                Icons.person,
-                color: color.scaffoldBackground,
-              ))
-        ],
         title: Row(
           children: [
             Image.asset(

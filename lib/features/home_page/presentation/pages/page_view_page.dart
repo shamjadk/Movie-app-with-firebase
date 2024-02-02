@@ -15,6 +15,7 @@ class PageViewPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       body: PageView(
+        
         controller: ref.watch(movieApiProvider.notifier).pageController,
         onPageChanged: (value) {
           ref.read(selectedProvider.notifier).state = value;

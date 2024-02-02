@@ -43,10 +43,10 @@ class LoginPage extends HookConsumerWidget {
                 ),
                 TextFieldWidget(
                     controller: userNameController,
-                    labelText: constants.txtuserNameTextField),
+                    labelText: constants.txtuserNameTextField,suffixicon: null,),
                 TextFieldWidget(
                     controller: passwordController,
-                    labelText: constants.txtpasswordTextField),
+                    labelText: constants.txtpasswordTextField,suffixicon: null,),
                 ForgottenPasswordWidget(
                   controller: emailController,
                 ),

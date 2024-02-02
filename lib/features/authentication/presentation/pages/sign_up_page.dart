@@ -51,10 +51,10 @@ class SignUpPage extends HookConsumerWidget {
                 //     labelText: constants.userNameTextField),
                 TextFieldWidget(
                     controller: emailController,
-                    labelText: constants.emailTextField),
+                    labelText: constants.emailTextField,suffixicon: null,),
                 TextFieldWidget(
                     controller: passwordController,
-                    labelText: constants.passwordTextField),
+                    labelText: constants.passwordTextField,suffixicon: null,),
                 // TextFieldWidget(
                 //     controller: passwordConfirmController,
                 //     labelText: constants.passwordConfirm),

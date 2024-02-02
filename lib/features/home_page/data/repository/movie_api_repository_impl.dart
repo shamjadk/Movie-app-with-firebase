@@ -33,6 +33,30 @@ class MovieApiRepositryImpl implements MovieApiRepository {
     ];
     return results;
   }
+  
+  @override
+  Future<List<MovieApiEntity>> searchMovies(String text)async {
+    final data = await movieDataSource.searchMovies(text);
+    late List<MovieApiEntity> results;
+
+    results = [
+      for (var result in data.results)
+        MovieApiEntity(
+            id: result.id!,
+            adult: result.adult,
+            backdropPath: result.backdropPath,
+            originalTitle: result.originalTitle,
+            title: result.title,
+            popularity: result.popularity,
+            overview: result.overview,
+            posterPath: result.posterPath,
+            releaseDate: result.releaseDate,
+            voteAverage: result.voteAverage,
+            voteCount: result.voteCount!,
+            video: result.video),
+    ];
+    return results;
+  }
 }
 
 @riverpod
