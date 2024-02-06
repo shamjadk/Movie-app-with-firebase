@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app_with_firebase/core/themes/app_theme.dart';
+import 'package:movie_app_with_firebase/core/utils/api_utils.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/entity/review_entity.dart';
 
 class ReviewListWidget extends StatelessWidget {
@@ -31,20 +32,7 @@ class ReviewListWidget extends StatelessWidget {
                 shrinkWrap: true,
                 itemCount: data.length,
                 itemBuilder: (context, index) {
-                  // int getDifference(DateTime storedTime) {
-                  //   final now = DateTime.now();
-                  //   double difference =
-                  //       now.difference(storedTime).inSeconds.toDouble();
-                  //   if (difference > 59) {
-                  //     difference = difference / difference;
-                  //   }
-
-                  //   return difference.toInt();
-                  // }
-
-                  final now = DateTime.now();
                   final time = data[index].time;
-                  final difference = now.difference(time).inHours;
                   return Container(
                     padding: EdgeInsets.all(appTheme.spaces.space_100),
                     decoration: BoxDecoration(
@@ -60,12 +48,8 @@ class ReviewListWidget extends StatelessWidget {
                               style: TextStyle(color: Colors.grey.shade300),
                               children: [
                                 TextSpan(
-                                  text:
-                                      '    ${time.toString().substring(10, 20)}',
-                                  style: TextStyle(color: Colors.grey.shade300),
-                                ),
-                                TextSpan(
-                                    text: ' ● $difference hours ago',
+                                    text:
+                                        ' ● ${ApiUtils.getTimeDifference(time)}',
                                     style:
                                         TextStyle(color: Colors.grey.shade300))
                               ]),

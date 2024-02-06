@@ -1,4 +1,3 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -62,11 +61,12 @@ class Reviewsectionwidget extends HookConsumerWidget {
                     onPressed: () {
                       ref.read(movieApiProvider.notifier).addReviews(
                           ReviewEntity(
-                            review: reviewController.text,
-                            userName: FirebaseAuth.instance.currentUser!.email
-                                .toString(),
-                            time: DateTime.now(),
-                          ),
+                              review: reviewController.text,
+                              userName: FirebaseAuth.instance.currentUser!.email
+                                  .toString(),
+                              time: DateTime.now(),
+                              dp: FirebaseAuth.instance.currentUser!.photoURL
+                                  .toString()),
                           '${movieEntity.title}${movieEntity.id}');
                       reviewController.clear();
                     },

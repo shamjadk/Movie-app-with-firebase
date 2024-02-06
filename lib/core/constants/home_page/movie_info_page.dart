@@ -7,4 +7,6 @@ class MovieInfoPageConstants {
   static const txtInfo = 'Info';
   static const txtReview = 'Review section';
   static const txtFldReview = 'Leave your review';
+  static const txtTrailer = 'Trailer';
+  static const txtVideos = 'Videos';
 }

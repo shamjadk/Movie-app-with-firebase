@@ -18,6 +18,7 @@ import 'package:movie_app_with_firebase/features/home_page/domain/usecase/remove
 import 'package:movie_app_with_firebase/features/home_page/domain/usecase/search_movies_usecase.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/usecase/top_rated_movies_usecase.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/usecase/trending_movies_usecase.dart';
+import 'package:movie_app_with_firebase/features/home_page/domain/usecase/upcoming_movies_usecase.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/provider/provider_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -42,12 +43,17 @@ class MovieApi extends _$MovieApi {
         repository: ref.watch(movieApiRepositoryProvider),
         cacheRepository: ref.watch(cacheRepositoryProvider),
       )(),
+      UpcomingMoviesUsecase(
+        repository: ref.watch(movieApiRepositoryProvider),
+        cacheRepository: ref.watch(cacheRepositoryProvider),
+      )(),
     ]);
     return ProviderState(
         movies: result[0],
         trending: result[1],
         popular: result[2],
         topRated: result[3],
+        upcoming: result[4],
         search: null);
   }
 

@@ -19,10 +19,9 @@ class HomePageConstants {
   final txtfldComment = 'Leave your comment';
   final listDiscover = [
     'Now playing',
-    'Upcoming movies',
-    'Top rated movies',
-    'Trending movies',
     'Popular movies'
+    'Top rated movies',
+    'Upcoming movies',
   ];
 }
 

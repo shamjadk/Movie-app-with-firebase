@@ -7,12 +7,11 @@ part 'review_section_model.freezed.dart';
 @freezed
 class ReviewModel with _$ReviewModel {
   const ReviewModel._();
-  factory ReviewModel({
-    required String review,
-    required String userName,
-    required DateTime time
-    
-  }) = _ReviewModel;
+  factory ReviewModel(
+      {required String review,
+      required String userName,
+      required DateTime time,
+      required String dp}) = _ReviewModel;
   factory ReviewModel.fromJson(Map<String, dynamic> json) =>
       _$ReviewModelFromJson(json);
   factory ReviewModel.fromFirestore(

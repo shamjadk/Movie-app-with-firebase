@@ -24,44 +24,47 @@ class ProfilePage extends ConsumerWidget {
         toolBarHeight: appTheme.spaces.space_50 * 15,
       ),
       body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const ProfileDetailsWidget(),
-          const SizedBox100(),
-          // RichText(
-          //   text: TextSpan(
-          //       text: 'Verified: ',
-          //       style: appTheme.typography.h500
-          //           .copyWith(fontWeight: FontWeight.normal),
-          //       children: [
-          //         TextSpan(text: currentUser!.emailVerified.toString())
-          //       ]),
-          // ),
-          TextButton(
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                    content: Text(constants.txtLogOut),
-                    actions: [
-                      TextButton(
-                          onPressed: () => context.pop(),
-                          child: Text(constants.btnNo)),
-                      TextButton(
-                          onPressed: () {
-                            ref
-                                .read(authenticationProvider.notifier)
-                                .logOut(context);
-                          },
-                          child: Text(constants.btnYes))
-                    ],
-                  ),
-                );
-              },
-              child: Text(constants.txtLogOutButton))
-        ],
-      )),
+          child: Padding(
+            padding:  EdgeInsets.all(appTheme.spaces.space_100),
+            child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+            const ProfileDetailsWidget(),
+            const SizedBox100(),
+            // RichText(
+            //   text: TextSpan(
+            //       text: 'Verified: ',
+            //       style: appTheme.typography.h500
+            //           .copyWith(fontWeight: FontWeight.normal),
+            //       children: [
+            //         TextSpan(text: currentUser!.emailVerified.toString())
+            //       ]),
+            // ),
+            TextButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      content: Text(constants.txtLogOut),
+                      actions: [
+                        TextButton(
+                            onPressed: () => context.pop(),
+                            child: Text(constants.btnNo)),
+                        TextButton(
+                            onPressed: () {
+                              ref
+                                  .read(authenticationProvider.notifier)
+                                  .logOut(context);
+                            },
+                            child: Text(constants.btnYes))
+                      ],
+                    ),
+                  );
+                },
+                child: Text(constants.txtLogOutButton))
+                  ],
+                ),
+          )),
     );
   }
 }

@@ -1,4 +1,3 @@
-import 'package:movie_app_with_firebase/features/home_page/data/data_source/cache_trending_data_source.dart';
 import 'package:movie_app_with_firebase/features/home_page/data/data_source/movie_api_data_source.dart';
 import 'package:movie_app_with_firebase/features/home_page/data/data_source/movie_api_data_source_impl.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/entity/movie_api_entity.dart';

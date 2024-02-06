@@ -7,8 +7,8 @@ import 'package:movie_app_with_firebase/features/home_page/domain/entity/movie_a
 import 'package:movie_app_with_firebase/features/home_page/presentation/pages/movie_info_page.dart';
 
 class SearchGridViewWidget extends ConsumerWidget {
-  final List<MovieApiEntity> search;
-  const SearchGridViewWidget({super.key, required this.search});
+  final List<MovieApiEntity> entity;
+  const SearchGridViewWidget({super.key, required this.entity});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -20,27 +20,27 @@ class SearchGridViewWidget extends ConsumerWidget {
           mainAxisSpacing: 20,
           crossAxisSpacing: 10),
       shrinkWrap: true,
-      itemCount: search.length,
+      itemCount: entity.length,
       itemBuilder: (context, index) => InkWell(
         onTap: () =>
-            context.push(MovieInfoPage.routePath, extra: search[index]),
+            context.push(MovieInfoPage.routePath, extra: entity[index]),
         child: Column(
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(appTheme.spaces.space_200),
               child: Image.network(
-                  ApiUtils.imageBasePath + search[index].posterPath),
+                  ApiUtils.imageBasePath + entity[index].posterPath),
             ),
             SizedBox(
               height: appTheme.spaces.space_50,
             ),
             Text(
-              '${search[index].title}(${search[index].releaseDate.year})',
+              '${entity[index].title}(${entity[index].releaseDate.year})',
               overflow: TextOverflow.ellipsis,
               style: appTheme.typography.h400
                   .copyWith(fontWeight: FontWeight.w500),
             ),
-            Text('⭐${search[index].voteAverage.toStringAsFixed(1)}')
+            Text('⭐${entity[index].voteAverage.toStringAsFixed(1)}')
           ],
         ),
       ),

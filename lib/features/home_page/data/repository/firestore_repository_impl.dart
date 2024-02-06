@@ -67,9 +67,11 @@ class FirestoreRepositoryImpl implements FirestoreRepository {
   Future<void> addReviewsToFirestore(
       ReviewEntity reviewEntity, String id) async {
     final model = ReviewModel(
-        review: reviewEntity.review,
-        userName: reviewEntity.userName,
-        time: reviewEntity.time);
+      review: reviewEntity.review,
+      userName: reviewEntity.userName,
+      time: reviewEntity.time,
+      dp: reviewEntity.dp,
+    );
 
     await reviewDataSource.addReviewToFirestore(model, id);
   }
@@ -82,9 +84,11 @@ class FirestoreRepositoryImpl implements FirestoreRepository {
       yield [
         for (final model in data)
           ReviewEntity(
-              review: model.data().review,
-              userName: model.data().userName,
-              time: model.data().time)
+            review: model.data().review,
+            userName: model.data().userName,
+            time: model.data().time,
+            dp: model.data().dp,
+          )
       ];
     }
   }

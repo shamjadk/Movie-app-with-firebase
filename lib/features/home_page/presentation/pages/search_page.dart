@@ -6,7 +6,7 @@ import 'package:movie_app_with_firebase/core/widgets/text_field_widget.dart';
 
 import 'package:movie_app_with_firebase/features/home_page/presentation/provider/movie_api_provider.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/normal_app_bar_widget.dart';
-import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/search_gridview_widget.dart';
+import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/gridview_widget.dart';
 
 class SearchPage extends HookConsumerWidget {
   const SearchPage({super.key});
@@ -52,7 +52,7 @@ class SearchPage extends HookConsumerWidget {
                                     child: Text('Search here'),
                                   );
                                 } else {
-                                  return SearchGridViewWidget(search: search);
+                                  return SearchGridViewWidget(entity: search);
                                 }
                               },
                               error: (error, stackTrace) =>

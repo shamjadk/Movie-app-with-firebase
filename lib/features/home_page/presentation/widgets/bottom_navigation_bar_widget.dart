@@ -21,7 +21,7 @@ class BottomNavigationBarWidget extends ConsumerWidget {
         items: [
           BottomNavigationBarItem(
               icon: Icon(
-                Icons.home,
+                Icons.home_outlined,
                 color: iconColor,
               ),
               label: ''),
@@ -33,13 +33,13 @@ class BottomNavigationBarWidget extends ConsumerWidget {
               label: ''),
           BottomNavigationBarItem(
               icon: Icon(
-                Icons.favorite_outlined,
+                Icons.favorite_border,
                 color: iconColor,
               ),
               label: ''),
           BottomNavigationBarItem(
               icon: Icon(
-                Icons.person,
+                Icons.person_outline,
                 color: iconColor,
               ),
               label: ''),

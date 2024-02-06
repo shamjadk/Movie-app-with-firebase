@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/entity/movie_api_entity.dart';
-import 'package:movie_app_with_firebase/features/home_page/presentation/provider/trailer_provider.dart';
+import 'package:movie_app_with_firebase/features/home_page/presentation/provider/videos_provider.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class VideoWidget extends ConsumerWidget {
@@ -13,7 +13,7 @@ class VideoWidget extends ConsumerWidget {
     return SizedBox(
       height: 250,
       child: Center(
-        child: switch (ref.watch(trailerProvider(entity.id))) {
+        child: switch (ref.watch(videoProvider(entity.id))) {
           AsyncData(:final value) => ListView.builder(
               shrinkWrap: true,
               physics: const PageScrollPhysics(),
@@ -43,7 +43,7 @@ class VideoWidget extends ConsumerWidget {
                 Text(error.toString()),
                 IconButton(
                     onPressed: () {
-                      ref.invalidate(trailerProvider(entity.id));
+                      ref.invalidate(videoProvider(entity.id));
                     },
                     icon: const Icon(
                       Icons.refresh,

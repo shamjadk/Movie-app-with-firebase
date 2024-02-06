@@ -3,12 +3,11 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:movie_app_with_firebase/core/constants/home_page/movie_info_page.dart';
 import 'package:movie_app_with_firebase/core/themes/app_theme.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/entity/movie_api_entity.dart';
-import 'package:movie_app_with_firebase/features/home_page/presentation/provider/trailer_provider.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/movie_details_widget.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/movie_info_buttons_widget.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/review_section_widget.dart';
+import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/trailer_widget.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/videos_widget.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class SliverBodyInfoPageWidget extends HookConsumerWidget {
   final MovieApiEntity entity;
@@ -19,7 +18,7 @@ class SliverBodyInfoPageWidget extends HookConsumerWidget {
     final appTheme = AppTheme.of(context);
     return SliverToBoxAdapter(
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(appTheme.spaces.space_100),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -37,6 +36,9 @@ class SliverBodyInfoPageWidget extends HookConsumerWidget {
               '\n${entity.overview}',
               style: appTheme.typography.h500,
             ),
+            const Text(MovieInfoPageConstants.txtTrailer),
+            TrailerWidget(entity: entity),
+            const Text(MovieInfoPageConstants.txtVideos),
             VideoWidget(entity: entity),
             Reviewsectionwidget(
               movieEntity: entity,

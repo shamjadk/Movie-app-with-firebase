@@ -7,6 +7,7 @@ class ReviewEntity with _$ReviewEntity {
   factory ReviewEntity({
     required String review,
     required String userName,
-    required DateTime time
+    required DateTime time,
+    required String dp,
   }) = _ReviewEntity;
 }
