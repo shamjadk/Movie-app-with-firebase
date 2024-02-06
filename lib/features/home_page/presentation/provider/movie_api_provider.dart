@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:movie_app_with_firebase/core/utils/snackbar_utils.dart';
+import 'package:movie_app_with_firebase/features/home_page/data/repository/cache_repository_impl.dart';
 import 'package:movie_app_with_firebase/features/home_page/data/repository/firestore_repository_impl.dart';
 import 'package:movie_app_with_firebase/features/home_page/data/repository/movie_api_repository_impl.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/entity/movie_api_entity.dart';
@@ -30,10 +31,17 @@ class MovieApi extends _$MovieApi {
     final result = await Future.wait([
       MovieApiUsecase(repository: ref.watch(movieApiRepositoryProvider))(),
       TrendingMoviesUsecase(
-          repository: ref.watch(movieApiRepositoryProvider))(),
-      PopularMoviesUsecase(repository: ref.watch(movieApiRepositoryProvider))(),
+        repository: ref.watch(movieApiRepositoryProvider),
+        cacheRepository: ref.watch(cacheRepositoryProvider),
+      )(),
+      PopularMoviesUsecase(
+        repository: ref.watch(movieApiRepositoryProvider),
+        cacheRepository: ref.watch(cacheRepositoryProvider),
+      )(),
       TopRatedMoviesUsecase(
-          repository: ref.watch(movieApiRepositoryProvider))(),
+        repository: ref.watch(movieApiRepositoryProvider),
+        cacheRepository: ref.watch(cacheRepositoryProvider),
+      )(),
     ]);
     return ProviderState(
         movies: result[0],
@@ -81,6 +89,8 @@ class MovieApi extends _$MovieApi {
           ));
     }
   }
+
+  
 }
 
 final selectedProvider = StateProvider<int>((ref) => 0);

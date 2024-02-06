@@ -12,7 +12,6 @@ class FirestoreDataSourceImpl implements FirestoreDataSource {
       .withConverter(
           fromFirestore: FireStoreModel.fromFirestore,
           toFirestore: (FireStoreModel model, options) => model.toFirestore());
-  
 
   @override
   Future<void> addfavMoviesToFirestore(FireStoreModel fireStoreModel) async {
@@ -30,8 +29,6 @@ class FirestoreDataSourceImpl implements FirestoreDataSource {
   Future<void> removeFavMoviesFromFirestore(String id) {
     return favouriteMoviesRef.doc(id).delete();
   }
-
-  
 }
 
 @riverpod

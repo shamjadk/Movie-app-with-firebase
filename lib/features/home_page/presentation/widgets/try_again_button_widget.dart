@@ -13,11 +13,14 @@ class TryAgainButtonWidget extends ConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(error),
-          TextButton(
+          IconButton(
               onPressed: () {
                 ref.invalidate(movieApiProvider);
               },
-              child: const Text('Try again')),
+              icon: const Icon(
+                Icons.refresh,
+                size: 40,
+              )),
         ],
       ),
     );

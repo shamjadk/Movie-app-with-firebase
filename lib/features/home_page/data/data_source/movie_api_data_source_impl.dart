@@ -6,6 +6,7 @@ import 'package:movie_app_with_firebase/core/exceptions/base_exception.dart';
 import 'package:movie_app_with_firebase/core/utils/api_utils.dart';
 import 'package:movie_app_with_firebase/features/home_page/data/data_source/movie_api_data_source.dart';
 import 'package:movie_app_with_firebase/features/home_page/data/models/movie_api_model.dart';
+import 'package:movie_app_with_firebase/features/home_page/data/models/trailer_api_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'movie_api_data_source_impl.g.dart';
@@ -24,8 +25,11 @@ class MovieApiDataSourceImpl implements MovieApiDataSource {
       if (response.statusCode == 200) {
         log(response.statusCode.toString());
         return MovieApiModel.fromJson(response.data);
+      } else {
+        log(response.statusCode.toString());
       }
-    } on Exception {
+    } on Exception catch (e) {
+      log(e.toString());
       throw BaseException('An error has occured');
     }
     return null;
@@ -42,9 +46,28 @@ class MovieApiDataSourceImpl implements MovieApiDataSource {
         },
       );
       return MovieApiModel.fromJson(response.data);
-    } on Exception {
+    } on Exception catch (e) {
+      log(e.toString());
       throw BaseException('An error has occured');
     }
+  }
+
+  @override
+  Future<TrailerApiModel?> fetchTrailers(int id) async {
+    try {
+      dio.options.headers['Authorization'] = 'Bearer $token';
+      Response response =
+          await dio.get('https://api.themoviedb.org/3/movie/$id/videos');
+      if (response.statusCode == 200) {
+        return TrailerApiModel.fromJson(response.data);
+      } else {
+        log(response.statusCode.toString());
+      }
+    } on Exception catch (e) {
+      log(e.toString());  
+      throw BaseException('An error has occured');
+    }
+    return null;
   }
 }
 

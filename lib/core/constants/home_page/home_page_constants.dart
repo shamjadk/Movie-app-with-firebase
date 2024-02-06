@@ -16,6 +16,7 @@ class HomePageConstants {
   final btnNo = 'No';
   final btnYes = 'Yes';
   final txtLogOut = 'Do you want to log out?';
+  final txtfldComment = 'Leave your comment';
   final listDiscover = [
     'Now playing',
     'Upcoming movies',

@@ -28,9 +28,15 @@ class FavouriteListWidget extends ConsumerWidget {
           children: [
             Row(
               children: [
-                Image.network(
-                  imagePath + data[index].posterPath,
-                  height: appTheme.spaces.space_100 * 20,
+                Container(
+                  height: 130,
+                  width: 90,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: NetworkImage(
+                            imagePath + data[index].posterPath,
+                          ),
+                          fit: BoxFit.cover)),
                 ),
                 SizedBox(
                   width: appTheme.spaces.space_125,

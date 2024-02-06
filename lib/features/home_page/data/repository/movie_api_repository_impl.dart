@@ -1,6 +1,8 @@
+import 'package:movie_app_with_firebase/features/home_page/data/data_source/cache_trending_data_source.dart';
 import 'package:movie_app_with_firebase/features/home_page/data/data_source/movie_api_data_source.dart';
 import 'package:movie_app_with_firebase/features/home_page/data/data_source/movie_api_data_source_impl.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/entity/movie_api_entity.dart';
+import 'package:movie_app_with_firebase/features/home_page/domain/entity/trailer_api_entity.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/repository/movie_api_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -33,9 +35,9 @@ class MovieApiRepositryImpl implements MovieApiRepository {
     ];
     return results;
   }
-  
+
   @override
-  Future<List<MovieApiEntity>> searchMovies(String text)async {
+  Future<List<MovieApiEntity>> searchMovies(String text) async {
     final data = await movieDataSource.searchMovies(text);
     late List<MovieApiEntity> results;
 
@@ -54,6 +56,21 @@ class MovieApiRepositryImpl implements MovieApiRepository {
             voteAverage: result.voteAverage,
             voteCount: result.voteCount!,
             video: result.video),
+    ];
+    return results;
+  }
+
+  @override
+  Future<List<TrailerApiEntity>> fetchTrailers(int id) async {
+    final data = await movieDataSource.fetchTrailers(id);
+    late List<TrailerApiEntity> results;
+    results = [
+      for (final trailer in data!.results)
+        TrailerApiEntity(
+            name: trailer.name,
+            key: trailer.key,
+            type: trailer.type,
+            id: trailer.id)
     ];
     return results;
   }

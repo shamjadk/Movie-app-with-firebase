@@ -11,8 +11,8 @@ final class LogInUseCase {
     }
     try {
       await repository.logInWithEmail(email, password);
-    } on Exception {
-      throw Authenticationxception('Cannot log in, please try again');
+    } on Exception catch (e) {
+      throw Authenticationxception('Cannot log in, please try again $e');
     }
   }
 }

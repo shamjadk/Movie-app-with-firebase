@@ -1,0 +1,256 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "2:4962305187995014162",
+      "lastPropertyId": "13:865346932083058925",
+      "name": "CacheTrendingMoviesModel",
+      "properties": [
+        {
+          "id": "1:8448968713429448948",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:2795729016799284062",
+          "name": "movieId",
+          "type": 6
+        },
+        {
+          "id": "3:1757654444534731935",
+          "name": "adult",
+          "type": 1
+        },
+        {
+          "id": "4:8011227118596997205",
+          "name": "backdropPath",
+          "type": 9
+        },
+        {
+          "id": "5:3938198805833533363",
+          "name": "originalTitle",
+          "type": 9
+        },
+        {
+          "id": "6:655204070128608180",
+          "name": "title",
+          "type": 9
+        },
+        {
+          "id": "7:1504914333319065274",
+          "name": "popularity",
+          "type": 8
+        },
+        {
+          "id": "8:4290636461725082472",
+          "name": "overview",
+          "type": 9
+        },
+        {
+          "id": "9:1988011122870156004",
+          "name": "posterPath",
+          "type": 9
+        },
+        {
+          "id": "10:291436085248557683",
+          "name": "releaseDate",
+          "type": 10
+        },
+        {
+          "id": "11:4381577534759195356",
+          "name": "voteAverage",
+          "type": 8
+        },
+        {
+          "id": "12:3442827584402422046",
+          "name": "voteCount",
+          "type": 6
+        },
+        {
+          "id": "13:865346932083058925",
+          "name": "video",
+          "type": 1
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "3:504517237269591875",
+      "lastPropertyId": "13:7034120666629228944",
+      "name": "CachePopularMoviesentityModel",
+      "properties": [
+        {
+          "id": "1:1196333435218866025",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:1186440420564660592",
+          "name": "adult",
+          "type": 1
+        },
+        {
+          "id": "3:8922258565843075204",
+          "name": "backdropPath",
+          "type": 9
+        },
+        {
+          "id": "4:5756116912964508558",
+          "name": "originalTitle",
+          "type": 9
+        },
+        {
+          "id": "5:5250963980242638972",
+          "name": "movieId",
+          "type": 6
+        },
+        {
+          "id": "6:9072386896273229182",
+          "name": "title",
+          "type": 9
+        },
+        {
+          "id": "7:2230970170699883630",
+          "name": "popularity",
+          "type": 8
+        },
+        {
+          "id": "8:9166327379425030092",
+          "name": "overview",
+          "type": 9
+        },
+        {
+          "id": "9:6455185706772562147",
+          "name": "posterPath",
+          "type": 9
+        },
+        {
+          "id": "10:8369307654716044735",
+          "name": "releaseDate",
+          "type": 10
+        },
+        {
+          "id": "11:6594728101477019387",
+          "name": "voteAverage",
+          "type": 8
+        },
+        {
+          "id": "12:4958255551846587988",
+          "name": "voteCount",
+          "type": 6
+        },
+        {
+          "id": "13:7034120666629228944",
+          "name": "video",
+          "type": 1
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "4:1636791156302795848",
+      "lastPropertyId": "13:4093497797166883668",
+      "name": "CacheTopRatedMoviesentityModel",
+      "properties": [
+        {
+          "id": "1:146810879157479310",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:1852625377015707453",
+          "name": "adult",
+          "type": 1
+        },
+        {
+          "id": "3:2335923324950198740",
+          "name": "backdropPath",
+          "type": 9
+        },
+        {
+          "id": "4:7446762244952862640",
+          "name": "originalTitle",
+          "type": 9
+        },
+        {
+          "id": "5:4612948172050526293",
+          "name": "movieId",
+          "type": 6
+        },
+        {
+          "id": "6:6014087346837382881",
+          "name": "title",
+          "type": 9
+        },
+        {
+          "id": "7:8741252644067853604",
+          "name": "popularity",
+          "type": 8
+        },
+        {
+          "id": "8:490079085644272368",
+          "name": "overview",
+          "type": 9
+        },
+        {
+          "id": "9:1853733112652119023",
+          "name": "posterPath",
+          "type": 9
+        },
+        {
+          "id": "10:8452969882443730103",
+          "name": "releaseDate",
+          "type": 10
+        },
+        {
+          "id": "11:6006579024796186862",
+          "name": "voteAverage",
+          "type": 8
+        },
+        {
+          "id": "12:8302701579610603972",
+          "name": "voteCount",
+          "type": 6
+        },
+        {
+          "id": "13:4093497797166883668",
+          "name": "video",
+          "type": 1
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "4:1636791156302795848",
+  "lastIndexId": "0:0",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [
+    6925629223636861340
+  ],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [
+    6931466683537593423,
+    2712852178110628466,
+    7350901187006004539,
+    8588251585690831612,
+    7303476244377184078,
+    9074917415224734003,
+    8797445224315627131,
+    2457478355618418610,
+    5297194811691610957,
+    6312943285419312626,
+    8245880231442566388,
+    5328131990817040451,
+    9026342639016480209
+  ],
+  "retiredRelationUids": [],
+  "version": 1
+}

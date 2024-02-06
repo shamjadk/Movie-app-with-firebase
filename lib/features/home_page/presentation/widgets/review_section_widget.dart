@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:movie_app_with_firebase/core/constants/home_page/home_page_constants.dart';
 import 'package:movie_app_with_firebase/core/constants/home_page/movie_info_page.dart';
 import 'package:movie_app_with_firebase/core/themes/app_theme.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/entity/movie_api_entity.dart';
@@ -56,7 +57,7 @@ class Reviewsectionwidget extends HookConsumerWidget {
             children: [
               CommentFieldWidget(
                 controller: reviewController,
-                labelText: 'labelText',
+                labelText: ref.watch(homePageConstantsProvider).txtfldComment,
                 suffixIcon: IconButton(
                     onPressed: () {
                       ref.read(movieApiProvider.notifier).addReviews(

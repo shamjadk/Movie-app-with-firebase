@@ -23,40 +23,42 @@ class HomePage extends ConsumerStatefulWidget {
 class _HomePageState extends ConsumerState<HomePage> {
   @override
   Widget build(BuildContext context) {
-    
     final constants = ref.watch(homePageConstantsProvider);
     final appTheme = AppTheme.of(context);
-    return Scaffold(
-      drawer: const DrawerWidget(),
-      appBar: AppBarWidget(
-        toolBarHeight: appTheme.spaces.space_50 * 15,
-      ),
-      body: ref.watch(movieApiProvider).isRefreshing
-          ? const Center(child: CircularProgressIndicator())
-          : switch (ref.watch(movieApiProvider)) {
-              AsyncData(:final value) => SingleChildScrollView(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                        vertical: appTheme.spaces.space_100),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CategoryTitleWidget(text: constants.txtTrending),
-                        TrendingNowCarouselWidget(value: value.trending),
-                        CategoryTitleWidget(text: constants.txtPopular),
-                        PopularListViewWidget(value: value.popular),
-                        CategoryTitleWidget(text: constants.txtDiscover),
-                        const DiscoverListWidget()
-                      ],
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        drawer: const DrawerWidget(),
+        appBar: AppBarWidget(
+          toolBarHeight: appTheme.spaces.space_50 * 15,
+        ),
+        body: ref.watch(movieApiProvider).isRefreshing
+            ? const Center(child: CircularProgressIndicator())
+            : switch (ref.watch(movieApiProvider)) {
+                AsyncData(:final value) => SingleChildScrollView(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                          vertical: appTheme.spaces.space_100),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CategoryTitleWidget(text: constants.txtTrending),
+                          TrendingNowCarouselWidget(value: value.trending),
+                          CategoryTitleWidget(text: constants.txtPopular),
+                          PopularListViewWidget(value: value.popular),
+                          CategoryTitleWidget(text: constants.txtDiscover),
+                          const DiscoverListWidget()
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              AsyncError(:final error) =>
-                TryAgainButtonWidget(error.toString()),
-              _ => const Center(
-                  child: CircularProgressIndicator(),
-                )
-            },
+                AsyncError(:final error) =>
+                  TryAgainButtonWidget(error.toString()),
+                _ => const Center(
+                    child: CircularProgressIndicator(),
+                  )
+              },
+      ),
     );
   }
 }

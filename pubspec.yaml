@@ -50,6 +50,11 @@ dependencies:
   carousel_slider: ^4.2.1
   google_fonts: ^6.1.0
   cloud_firestore: ^4.14.0
+  objectbox: ^2.4.0
+  objectbox_flutter_libs: any
+  objectbox_generator: any
+  path_provider: ^2.1.2
+  youtube_player_flutter: ^8.1.2
 
 dev_dependencies:
   flutter_test:
