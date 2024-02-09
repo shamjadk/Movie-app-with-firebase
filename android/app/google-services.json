@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "8962504628-peppsds8qep38v7l3m02bfigrnt8ujrm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.movie_app_with_firebase",
+            "certificate_hash": "2ac94d486ef9b9c30261a8b3cfe21fc497e6921a"
+          }
+        },
+        {
           "client_id": "8962504628-dftuhpom928e8focsiigdv42t9ipl5oh.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,6 +37,13 @@
             {
               "client_id": "8962504628-dftuhpom928e8focsiigdv42t9ipl5oh.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "8962504628-tidasf51h6qlbpma3n2vi9b4bu7jtkbo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.movieAppWithFirebase"
+              }
             }
           ]
         }

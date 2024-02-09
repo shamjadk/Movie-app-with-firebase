@@ -46,29 +46,19 @@ class SliverInfoPageWidget extends ConsumerWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Opacity(
-                  opacity:
-                      top == MediaQuery.of(context).padding.top + kToolbarHeight
-                          ? 1
-                          : 0,
-                  child: SizedBox(
-                    width: 150,
-                    child: Text(
-                      '${entity.title} (${entity.releaseDate.year})',
-                      style: appTheme.typography.wh600,
-                    ),
-                  ),
+            title: Opacity(
+              opacity:
+                  top == MediaQuery.of(context).padding.top + kToolbarHeight
+                      ? 1
+                      : 0,
+              child: SizedBox(
+                width: MediaQuery.sizeOf(context).width / 1.5,
+                child: Text(
+                  '${entity.title} (${entity.releaseDate.year})',
+                  style: appTheme.typography.wh600,
+                  overflow: TextOverflow.ellipsis,
                 ),
-                Opacity(
-                  opacity:
-                      top == MediaQuery.of(context).padding.top + kToolbarHeight
-                          ? 0
-                          : 1,
-                ),
-              ],
+              ),
             ),
           );
         },

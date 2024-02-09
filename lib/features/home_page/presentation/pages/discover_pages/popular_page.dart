@@ -16,7 +16,7 @@ class PopularPage extends ConsumerWidget {
     final appTheme = AppTheme.of(context);
     return Scaffold(
       appBar: NormalAppBarWidget(
-          title: ref.watch(homePageConstantsProvider).listDiscover[1],
+          title: ref.watch(homePageConstantsProvider).txtPopular,
           toolBarHeight: appTheme.spaces.space_50 * 15),
       body: ref.watch(movieApiProvider).isRefreshing
           ? const Center(child: CircularProgressIndicator())

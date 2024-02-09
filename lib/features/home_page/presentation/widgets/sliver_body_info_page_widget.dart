@@ -6,6 +6,7 @@ import 'package:movie_app_with_firebase/features/home_page/domain/entity/movie_a
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/movie_details_widget.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/movie_info_buttons_widget.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/review_section_widget.dart';
+import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/sizebox_100_widget.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/trailer_widget.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/videos_widget.dart';
 
@@ -27,7 +28,7 @@ class SliverBodyInfoPageWidget extends HookConsumerWidget {
               style: appTheme.typography.h800,
             ),
             MoviedetailsWidget(entity: entity),
-            const MovieInfoButtonsWidget(),
+            MovieInfoButtonsWidget(entity: entity),
             Text(
               MovieInfoPageConstants.txtSynopsis,
               style: appTheme.typography.h600,
@@ -36,9 +37,17 @@ class SliverBodyInfoPageWidget extends HookConsumerWidget {
               '\n${entity.overview}',
               style: appTheme.typography.h500,
             ),
-            const Text(MovieInfoPageConstants.txtTrailer),
+            const SizedBox100(),
+            Text(
+              MovieInfoPageConstants.txtTrailer,
+              style: appTheme.typography.h600,
+            ),
             TrailerWidget(entity: entity),
-            const Text(MovieInfoPageConstants.txtVideos),
+            const SizedBox100(),
+            Text(
+              MovieInfoPageConstants.txtVideos,
+              style: appTheme.typography.h600,
+            ),
             VideoWidget(entity: entity),
             Reviewsectionwidget(
               movieEntity: entity,

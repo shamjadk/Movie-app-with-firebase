@@ -6,4 +6,7 @@ abstract class FirestoreDataSource {
   Stream<QuerySnapshot<FireStoreModel>> getFavMoviesFromFirestore();
   Future<void> removeFavMoviesFromFirestore(String id);
   
+  Future<void> addwatchListToFirestore(FireStoreModel model);
+  Stream<QuerySnapshot<FireStoreModel>> getWatchListFromFirestore();
+  Future<void> removeWatchListFromFirestore(String id);
 }

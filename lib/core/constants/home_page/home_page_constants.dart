@@ -17,12 +17,11 @@ class HomePageConstants {
   final btnYes = 'Yes';
   final txtLogOut = 'Do you want to log out?';
   final txtfldComment = 'Leave your comment';
-  final listDiscover = [
-    'Now playing',
-    'Popular movies'
-    'Top rated movies',
-    'Upcoming movies',
-  ];
+  final txtNowPlaying = 'Now playing';
+  final txtTopRated = 'Top rated movies';
+  final txtUpcoming = 'Upcoming movies';
+  final txtwatchlist = 'Watchlist';
+  final txtFavourite = 'Favourite movies';
 }
 
 @riverpod

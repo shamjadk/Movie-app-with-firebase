@@ -39,7 +39,7 @@ class BottomNavigationBarWidget extends ConsumerWidget {
               label: ''),
           BottomNavigationBarItem(
               icon: Icon(
-                Icons.person_outline,
+                Icons.tv,
                 color: iconColor,
               ),
               label: ''),

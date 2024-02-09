@@ -4,6 +4,9 @@ import 'package:go_router/go_router.dart';
 import 'package:movie_app_with_firebase/core/constants/home_page/home_page_constants.dart';
 import 'package:movie_app_with_firebase/core/themes/app_theme.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/pages/discover_pages/now_playing_page.dart';
+import 'package:movie_app_with_firebase/features/home_page/presentation/pages/discover_pages/popular_page.dart';
+import 'package:movie_app_with_firebase/features/home_page/presentation/pages/discover_pages/top_rated_movies_page.dart';
+import 'package:movie_app_with_firebase/features/home_page/presentation/pages/discover_pages/up_coming_movies_page.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/widgets/discover_buttons_widget.dart';
 
 class DiscoverListWidget extends ConsumerWidget {
@@ -20,33 +23,27 @@ class DiscoverListWidget extends ConsumerWidget {
         physics: const ClampingScrollPhysics(),
         children: [
           DiscoverButtonsWidget(
-            text: constatnts.listDiscover[0],
+            text: constatnts.txtNowPlaying,
             onTap: () {
               context.push(NowPlayingPage.routePath);
             },
           ),
           DiscoverButtonsWidget(
-            text: constatnts.listDiscover[1],
+            text: constatnts.txtPopular,
             onTap: () {
-              context.push(NowPlayingPage.routePath);
+              context.push(PopularPage.routePath);
             },
           ),
           DiscoverButtonsWidget(
-            text: constatnts.listDiscover[2],
+            text: constatnts.txtTopRated,
             onTap: () {
-              context.push(NowPlayingPage.routePath);
+              context.push(TopRatedPage.routePath);
             },
           ),
           DiscoverButtonsWidget(
-            text: constatnts.listDiscover[3],
+            text: constatnts.txtUpcoming,
             onTap: () {
-              context.push(NowPlayingPage.routePath);
-            },
-          ),
-          DiscoverButtonsWidget(
-            text: constatnts.listDiscover[4],
-            onTap: () {
-              context.push(NowPlayingPage.routePath);
+              context.push(UpComingPage.routePath);
             },
           ),
         ],

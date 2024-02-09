@@ -5,6 +5,7 @@ import 'package:movie_app_with_firebase/features/authentication/presentation/pag
 import 'package:movie_app_with_firebase/features/authentication/presentation/pages/phone_number_page.dart';
 import 'package:movie_app_with_firebase/features/authentication/presentation/pages/sign_up_page.dart';
 import 'package:movie_app_with_firebase/features/home_page/domain/entity/movie_api_entity.dart';
+import 'package:movie_app_with_firebase/features/home_page/presentation/pages/favourite_page.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/pages/home_page.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/pages/movie_info_page.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/pages/discover_pages/now_playing_page.dart';
@@ -13,6 +14,7 @@ import 'package:movie_app_with_firebase/features/home_page/presentation/pages/pr
 import 'package:movie_app_with_firebase/features/home_page/presentation/pages/page_view_page.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/pages/discover_pages/top_rated_movies_page.dart';
 import 'package:movie_app_with_firebase/features/home_page/presentation/pages/discover_pages/up_coming_movies_page.dart';
+import 'package:movie_app_with_firebase/features/home_page/presentation/pages/watchlist_page.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'router.g.dart';
@@ -74,7 +76,14 @@ final _router = GoRouter(initialLocation: PageViewPage.routePath, routes: [
     path: UpComingPage.routePath,
     builder: (context, state) => const UpComingPage(),
   ),
-  
+  GoRoute(
+    path: WatchListPage.routePath,
+    builder: (context, state) => const UpComingPage(),
+  ),
+  GoRoute(
+    path: FavouritePage.routePath,
+    builder: (context, state) => const FavouritePage(),
+  ),
 ]);
 
 @riverpod

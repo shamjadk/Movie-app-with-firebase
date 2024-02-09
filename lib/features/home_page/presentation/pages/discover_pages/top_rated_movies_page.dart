@@ -17,7 +17,7 @@ class TopRatedPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: NormalAppBarWidget(
-          title: ref.watch(homePageConstantsProvider).listDiscover[2],
+          title: ref.watch(homePageConstantsProvider).txtTopRated,
           toolBarHeight: appTheme.spaces.space_50 * 15),
       body: ref.watch(movieApiProvider).isRefreshing
           ? const Center(child: CircularProgressIndicator())

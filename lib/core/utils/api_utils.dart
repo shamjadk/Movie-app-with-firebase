@@ -21,31 +21,47 @@ class ApiUtils {
     }
   }
 
-  static String getTimeDifference(DateTime storedTime) {
-    int hourInSeconds = 3600;
-    int dayInSeconds = 3600;
-    int weekInSeconds = 3600;
-    int yearInSeconds = 3600;
+  static int getTimeDifference(DateTime storedTime) {
+    // int hourInSeconds = 3600;
+    // int dayInSeconds = 86400;
+    // int weekInSeconds = 604800;
+    // int yearInSeconds = 31449600;
     DateTime now = DateTime.now();
     var difference = now.difference(storedTime).inSeconds;
-    String result;
+    // String result;
+    // if (difference > 60) {
+    //   result = '${now.difference(storedTime).inMinutes} minutes ago';
+    // }
+    // if (difference > hourInSeconds) {
+    //   result = '${now.difference(storedTime).inHours} hours ago';
+    // }
+    // if (difference > dayInSeconds) {
+    //   result = '${now.difference(storedTime).inDays} days ago';
+    // }
+    // if (difference > weekInSeconds) {
+    //   result = '${difference / 604800} weeks ago';
+    // }
+    // if (difference > yearInSeconds) {
+    //   result = '${difference / 31449600} years ago';
+    // } else {
+    //   result = '$difference seconds ago';
+    // }
+    // return result;
     if (difference > 60) {
-      result = '${now.difference(storedTime).inMinutes} minutes ago';
+      difference = now.difference(storedTime).inMinutes;
     }
-    if (difference > hourInSeconds) {
-      result = '${now.difference(storedTime).inHours} hours ago';
+    if (difference > 60) {
+      difference = now.difference(storedTime).inHours;
     }
-    if (difference > dayInSeconds) {
-      result = '${now.difference(storedTime).inDays} days ago';
+    if (difference > 24) {
+      difference = now.difference(storedTime).inDays;
     }
-    if (difference > weekInSeconds) {
-      result = '${difference / 604800} weeks ago';
+    if (difference > 7) {
+      difference = difference ~/ 7;
     }
-    if (difference > yearInSeconds) {
-      result = '${difference / 31449600} years ago';
-    } else {
-      result = '$difference seconds ago';
+    if (difference > 52) {
+      difference = difference ~/ 52;
     }
-    return result;
+    return difference;
   }
 }

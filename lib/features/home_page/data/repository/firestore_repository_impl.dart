@@ -92,6 +92,53 @@ class FirestoreRepositoryImpl implements FirestoreRepository {
       ];
     }
   }
+
+  @override
+  Future<void> addToWatchlist(MovieApiEntity entity) async {
+    final model = FireStoreModel(
+        id: entity.id,
+        adult: entity.adult,
+        backdropPath: entity.backdropPath,
+        originalTitle: entity.originalTitle,
+        title: entity.title,
+        popularity: entity.popularity,
+        overview: entity.overview,
+        posterPath: entity.posterPath,
+        releaseDate: entity.releaseDate,
+        voteAverage: entity.voteAverage,
+        voteCount: entity.voteCount,
+        video: entity.video);
+    await dataSource.addwatchListToFirestore(model);
+  }
+
+  @override
+  Stream<List<MovieApiEntity>> getWatchlistFromFirestore() async* {
+    final snapshot = dataSource.getWatchListFromFirestore();
+    await for (final doc in snapshot) {
+      final data = doc.docs;
+      yield [
+        for (final model in data)
+          MovieApiEntity(
+              id: model.data().id,
+              adult: model.data().adult,
+              backdropPath: model.data().backdropPath,
+              originalTitle: model.data().originalTitle,
+              title: model.data().title,
+              popularity: model.data().popularity,
+              overview: model.data().overview,
+              posterPath: model.data().posterPath,
+              releaseDate: model.data().releaseDate,
+              voteAverage: model.data().voteAverage,
+              voteCount: model.data().voteCount,
+              video: model.data().video)
+      ];
+    }
+  }
+
+  @override
+  Future<void> removeWatchlistFromFirestore(String id) {
+    return dataSource.removeWatchListFromFirestore(id);
+  }
 }
 
 @riverpod

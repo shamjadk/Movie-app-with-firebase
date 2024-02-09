@@ -13,6 +13,12 @@ class FirestoreDataSourceImpl implements FirestoreDataSource {
           fromFirestore: FireStoreModel.fromFirestore,
           toFirestore: (FireStoreModel model, options) => model.toFirestore());
 
+  final watchListRef = FirebaseFirestore.instance
+      .collection('watchlist')
+      .withConverter(
+          fromFirestore: FireStoreModel.fromFirestore,
+          toFirestore: (FireStoreModel model, options) => model.toFirestore());
+
   @override
   Future<void> addfavMoviesToFirestore(FireStoreModel fireStoreModel) async {
     await favouriteMoviesRef
@@ -28,6 +34,21 @@ class FirestoreDataSourceImpl implements FirestoreDataSource {
   @override
   Future<void> removeFavMoviesFromFirestore(String id) {
     return favouriteMoviesRef.doc(id).delete();
+  }
+
+  @override
+  Future<void> addwatchListToFirestore(FireStoreModel model) async {
+    await watchListRef.doc(model.id.toString()).set(model);
+  }
+
+  @override
+  Stream<QuerySnapshot<FireStoreModel>> getWatchListFromFirestore() {
+    return watchListRef.snapshots();
+  }
+
+  @override
+  Future<void> removeWatchListFromFirestore(String id) {
+    return watchListRef.doc(id).delete();
   }
 }
 

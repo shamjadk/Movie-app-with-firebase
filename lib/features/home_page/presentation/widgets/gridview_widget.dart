@@ -16,7 +16,7 @@ class SearchGridViewWidget extends ConsumerWidget {
     return GridView.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
-          mainAxisExtent: 240,
+          mainAxisExtent: 230,
           mainAxisSpacing: 20,
           crossAxisSpacing: 10),
       shrinkWrap: true,
@@ -39,6 +39,9 @@ class SearchGridViewWidget extends ConsumerWidget {
               overflow: TextOverflow.ellipsis,
               style: appTheme.typography.h400
                   .copyWith(fontWeight: FontWeight.w500),
+            ),
+            SizedBox(
+              height: appTheme.spaces.space_50,
             ),
             Text('⭐${entity[index].voteAverage.toStringAsFixed(1)}')
           ],
